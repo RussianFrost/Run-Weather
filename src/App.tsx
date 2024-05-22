@@ -1,22 +1,33 @@
-import './index.css';
-import React from 'react'
+import './App.css';
+import React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import {BottomNavigationAction} from "@mui/material";
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import AddchartIcon from '@mui/icons-material/Addchart';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 import { Link, Outlet } from 'react-router-dom';
 
 function App() {
+    const [value, setValue] = React.useState(0);
+
     return (
-    <div className="App">
-      <BottomNavigation showLabels>
-      <Link to={``}> <BottomNavigationAction label="Recents" icon={<RestoreIcon />} /> </Link>
-      <Link to={`createschedule`}> <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} /> </Link>
-      <Link to={`profile`}> <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} /> </Link>
-      </BottomNavigation>
-      <Outlet />
-    </div>
+        <div className="App" style={{ width: "100%" }}>
+            <div className="App-header">
+
+            </div>
+            <div className="App-body">
+                <Outlet />
+            </div>
+            <div className="App-footer" style={{ width: "100%" }}>
+              <BottomNavigation showLabels value={value} onChange={(event, newValue) => {
+                  setValue(newValue);
+              }}>
+              <Link to={``}> <BottomNavigationAction label="Recents" value="home" icon={<AnalyticsIcon />} /> </Link>
+              <Link to={`createschedule`}> <BottomNavigationAction label="Favorites" value="create" icon={<AddchartIcon />} /> </Link>
+              <Link to={`profile`}> <BottomNavigationAction label="Nearby" value="profile" icon={<AccountBoxIcon />} /> </Link>
+              </BottomNavigation>
+            </div>
+        </div>
   );
 }
 

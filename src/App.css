@@ -1,4 +1,21 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
+
+.App {
+
+}
+
+.App-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.App-body{
+  display: flex;
+  justify-content: center;
+
+}
+
 

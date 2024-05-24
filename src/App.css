@@ -1,21 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.App {
-
+.App-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.App-footer{
+.App-body {
   display: flex;
   justify-content: center;
 }
-
-.App-body{
-  display: flex;
-  justify-content: center;
-
-}
-
-

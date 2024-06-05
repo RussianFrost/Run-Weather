@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/Home/Home.less'
+import '../pages/Home/Home.css'
 
 const WeatherWelcomeContainer = () => {
     return (

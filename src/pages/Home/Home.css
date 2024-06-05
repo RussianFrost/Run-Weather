@@ -8,3 +8,16 @@
 .better-time-text{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+.wearth-block{
+    width: 500px;
+    height: auto;
+    background-color: #5d63d1;
+}
+.values-wearth{
+    display: flex;
+    justify-content: center;
+}
+.values-wearth-name{
+    left: 30px;
+    top: 30px;
+}

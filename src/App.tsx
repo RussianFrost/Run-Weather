@@ -1,4 +1,4 @@
-import "./App.less";
+import "./App.css";
 import React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import { BottomNavigationAction, Paper } from "@mui/material";

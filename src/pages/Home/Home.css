@@ -11,13 +11,25 @@
 .wearth-block{
     width: 500px;
     height: auto;
-    background-color: #5d63d1;
+    background-color: linear-gradient(#5d63d1, white)
 }
 .values-wearth{
     display: flex;
     justify-content: center;
+    padding-bottom: 15px;
 }
 .values-wearth-name{
-    left: 30px;
-    top: 30px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.wearth-today-block{
+    width: 500px;
+    height: 180px;
+    padding: 15px 15px 15px 15px;
+}
+.wearth-city{
+    float: left;
+}
+.wearth-status{
+    float: right;
 }

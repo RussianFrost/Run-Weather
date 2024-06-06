@@ -2,16 +2,14 @@
     width: auto;
     height: 250px;
     border-radius: 30px;
-    border: 1px solid black;
-    background-color: rgb(9, 152, 235);
 }
 .better-time-text{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .wearth-block{
-    width: 500px;
+    width: 300px;
     height: auto;
-    background-color: linear-gradient(#5d63d1, white)
+    background-color: #5d63d1;
 }
 .values-wearth{
     display: flex;
@@ -23,13 +21,17 @@
     padding-left: 15px;
 }
 .wearth-today-block{
-    width: 500px;
-    height: 180px;
+    width: 275px;
+    height: auto;
     padding: 15px 15px 15px 15px;
+    float: left;
 }
 .wearth-city{
     float: left;
 }
 .wearth-status{
     float: right;
+}
+.wearth-day{
+    float: left;
 }

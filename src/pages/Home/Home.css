@@ -1,37 +1,47 @@
-.welcome-container{
-    width: auto;
-    height: 250px;
-    border-radius: 30px;
+.home-page {
+  display: flex;
 }
-.better-time-text{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+.welcome-container {
+  width: auto;
+  height: 250px;
+  border-radius: 30px;
 }
-.wearth-block{
-    width: 300px;
-    height: auto;
-    background-color: #5d63d1;
+.better-time-text {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.values-wearth{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 15px;
+.wearth-block {
+  width: 300px;
+  height: auto;
+  background-color: #5d63d1;
 }
-.values-wearth-name{
-    padding-top: 15px;
-    padding-left: 15px;
+.values-wearth {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
 }
-.wearth-today-block{
-    width: 275px;
-    height: auto;
-    padding: 15px 15px 15px 15px;
-    float: left;
+.values-wearth-name {
+  padding-top: 15px;
+  padding-left: 15px;
 }
-.wearth-city{
-    float: left;
+.wearth-today-block {
+  width: 275px;
+  height: auto;
+  padding: 15px 15px 15px 15px;
+  float: left;
+  border-radius: 20px !important;
 }
-.wearth-status{
-    float: right;
+.wearth-city {
+  float: left;
 }
-.wearth-day{
-    float: left;
+.wearth-status {
+  float: right;
+}
+.wearth-day {
+  float: left;
+}
+.wearth-week{
+  display: flex;
+  justify-content: center;
 }

@@ -1,11 +1,10 @@
-.App{
+.home-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
 }
-
 
 .welcome-container {
   width: auto;
@@ -23,29 +22,45 @@
 .values-wearth {
   display: flex;
   justify-content: center;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 .values-wearth-name {
-  padding-top: 15px;
+  padding-top: 10px;
   padding-left: 15px;
+  padding-bottom: 10px;
 }
+
 .wearth-today-block {
-  width: 275px;
+  width: auto;
   height: auto;
   padding: 15px 15px 15px 15px;
-  float: left;
+  /*float: left;*/
   border-radius: 20px !important;
 }
 .wearth-city {
-  float: left;
+  display: flex;
+  flex-direction: column;
+  padding-left: 7px;
 }
 .wearth-status {
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 7px;
 }
 .wearth-day {
-  float: left;
-}
-.wearth-week{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.wearth-week {
+  display: flex;
+  align-self: flex-end;
+}
+.wearth-block-status {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
 }

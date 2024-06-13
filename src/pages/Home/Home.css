@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  height: 120vh;
 }
 
 /*Блок с лучшим временем*/
@@ -20,6 +20,15 @@
   width: 300px;
   height: auto;
   background-color: #5d63d1;
+  border-radius: 20px;
+}
+.wearth-typography-today {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.welcome-name {
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 .values-wearth {
   display: flex;
@@ -70,3 +79,24 @@
 
 /*Верстка микро блоков*/
 
+.micro-blocks {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: column;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+.weather-all-micro-blocks {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 400px; /*90% для мобильной версии  30 для пк при 100% */
+  height: auto;
+}
+.wether-micro-name {
+  padding-left: 3px;
+}

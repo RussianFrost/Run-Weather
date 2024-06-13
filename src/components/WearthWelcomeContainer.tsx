@@ -1,12 +1,24 @@
 import React from "react";
 import "../pages/Home/Home.css";
+import { Typography } from "@mui/material";
 
-const WeatherWelcomeContainer = () => {
+type WeatherDayBlock = {
+  time: any;
+  data: any;
+};
+
+const WeatherWelcomeContainer: React.FC<WeatherDayBlock> = (weatherday) => {
   return (
     <div className="wearth-block">
-      <p className="better-time-text">Лучшее время для бега:</p>
-      <p>15:00 - 17:00</p>
-      <p>24C, 2 m/s</p>
+      <Typography variant="body1" className="values-wearth-name">
+        Лучшее время для бега:
+      </Typography>
+      <Typography variant="h5" className="values-wearth">
+        {weatherday.time}
+      </Typography>
+      <Typography variant="h6" className="values-wearth">
+        {weatherday.data}
+      </Typography>
     </div>
   );
 };

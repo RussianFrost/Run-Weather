@@ -6,7 +6,7 @@ import "@fontsource/roboto/700.css";
 import "./Home.css";
 import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
-import WeatherMicroContainers from "../../components/WeatherMicroContainer/WeatherMicroContainers";
+import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
 
 const Home = () => {
@@ -40,23 +40,23 @@ const Home = () => {
         ></WeatherWeekBlock>
       </div>
       <div className="weather-all-micro-blocks">
-        <WeatherMicroContainers
+        <WeatherMicroContainer
           title={"UV INDEX"}
           data={"4"}
           desctiption={"Moderate"}
-        ></WeatherMicroContainers>
-        <WeatherMicroContainers
+        ></WeatherMicroContainer>
+        <WeatherMicroContainer
           title={"SUNRICE"}
           data={"5:28 AM"}
-        ></WeatherMicroContainers>
-        <WeatherMicroContainers
+        ></WeatherMicroContainer>
+        <WeatherMicroContainer
           title={"WIND"}
           data={"9.7 km/h"}
-        ></WeatherMicroContainers>
-        <WeatherMicroContainers
+        ></WeatherMicroContainer>
+        <WeatherMicroContainer
           title={"FEELS LIKE"}
           data={"19°"}
-        ></WeatherMicroContainers>
+        ></WeatherMicroContainer>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ type WeatherMicroBlocks = {
   desctiption?: string;
 };
 
-const WeatherMicroContainers: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
+const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
   return (
     <div className="micro-blocks">
       <Typography variant="button" className="micro-name">
@@ -20,4 +20,4 @@ const WeatherMicroContainers: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
   );
 };
 
-export default WeatherMicroContainers;
+export default WeatherMicroContainer;

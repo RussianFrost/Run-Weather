@@ -1,7 +1,6 @@
 .weather-block-status {
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
   border-radius: 20px;
   color: white;
   background-color: #5d63d1;
@@ -21,28 +20,18 @@
   align-items: flex-end;
   padding-right: 7px;
 }
-.weather-week {
-  display: flex;
-}
 .weather-day {
   display: flex;
-  
-  justify-content: center;
   flex-direction: column;
-  padding-left: 7px;
-  padding-right: 7px;
+  justify-content: space-between;
+  align-items: center;
 }
 .weather-now {
   display: flex;
   justify-content: space-between;
 }
-.weather-hour{
+.weather-week {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.weather-degress{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
 }

@@ -4,10 +4,10 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./Home.css";
-import { Paper, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainers from "../../components/WeatherMicroContainer/WeatherMicroContainers";
-import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WearthWelcomeContainer";
+import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
 
 const Home = () => {
   return (
@@ -29,38 +29,33 @@ const Home = () => {
           weatherData={"76°"}
           weatherStatus={"Sunny"}
           weatherAverage={"H:88° L:57°"}
-          sixHoursTime={["1AM", "2AM", "3AM", "4AM", "5AM", "6AM"]}
-          sixHoursDegrees={["76°", "75°", "84°", "74°", "87°", "71°"]}
+          sixHoursData={[
+            { time: "1PM", degree: "84" },
+            { time: "2PM", degree: "81" },
+            { time: "3PM", degree: "80" },
+            { time: "4PM", degree: "54" },
+            { time: "5PM", degree: "34" },
+            { time: "6PM", degree: "12" },
+          ]}
         ></WeatherWeekBlock>
       </div>
       <div className="weather-all-micro-blocks">
         <WeatherMicroContainers
-          type={"UV INDEX"}
+          title={"UV INDEX"}
           data={"4"}
-          uv={"Moderate"}
-          time={""}
-          weather={""}
+          desctiption={"Moderate"}
         ></WeatherMicroContainers>
         <WeatherMicroContainers
-          type={"SUNRICE"}
+          title={"SUNRICE"}
           data={"5:28 AM"}
-          uv={""}
-          time={"Sunset: 7:25PM"}
-          weather={""}
         ></WeatherMicroContainers>
         <WeatherMicroContainers
-          type={"WIND"}
+          title={"WIND"}
           data={"9.7 km/h"}
-          uv={""}
-          time={""}
-          weather={""}
         ></WeatherMicroContainers>
         <WeatherMicroContainers
-          type={"FEELS LIKE"}
+          title={"FEELS LIKE"}
           data={"19°"}
-          uv={""}
-          time={""}
-          weather={""}
         ></WeatherMicroContainers>
       </div>
     </div>

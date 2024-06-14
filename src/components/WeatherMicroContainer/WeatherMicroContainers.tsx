@@ -2,25 +2,20 @@ import React from "react";
 import { Typography } from "@mui/material";
 import "../WeatherMicroContainer/WeatherMicroContainer.css";
 
-type WearherMicroBlocks = {
-  type: any;
-  data: any;
-  time: any;
-  uv: any;
-  weather: any;
+type WeatherMicroBlocks = {
+  title: string;
+  data: string;
+  desctiption?: string;
 };
 
-const WeatherMicroContainers: React.FC<WearherMicroBlocks> = (wearhermicro) => {
+const WeatherMicroContainers: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
   return (
     <div className="micro-blocks">
       <Typography variant="button" className="micro-name">
-        {wearhermicro.type}
+        {weatherMicro.title}
       </Typography>
-      <Typography variant="h4">{wearhermicro.data}</Typography>
-      <Typography variant="h6">
-        {wearhermicro.uv}
-        {wearhermicro.weather}
-      </Typography>
+      <Typography variant="h4">{weatherMicro.data}</Typography>
+      <Typography variant="h6">{weatherMicro.desctiption}</Typography>
     </div>
   );
 };

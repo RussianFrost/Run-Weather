@@ -1,6 +1,6 @@
 import React from "react";
 import "../WearthWelcomeContainer/WeatherWelcomeContainer.css";
-import { Typography, Paper } from "@mui/material";
+import { Typography } from "@mui/material";
 
 type WeatherDayBlock = {
   title: string;

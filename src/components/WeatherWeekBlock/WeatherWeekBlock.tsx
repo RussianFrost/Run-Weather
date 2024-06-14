@@ -9,8 +9,7 @@ type WeatherDayProps = {
   weatherData: string;
   weatherAverage: string;
   weatherStatus: string;
-  sixHoursDegrees: string[];
-  sixHoursTime: string[];
+  sixHoursData: { time: string; degree: string }[];
 };
 
 const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
@@ -30,22 +29,26 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
         </div>
       </div>
       <div className="weather-week">
-        <div className="weather-day">
-          <div className="weather-hour">
-            {props.sixHoursTime.map((data, index) => (
-              <Typography key={index} variant="button" fontSize="small">
-                {data}
-              </Typography>
-            ))}
+        {props.sixHoursData.map((hour, index) => (
+          <div className="weather-day">
+            <Typography
+              key={index}
+              variant="button"
+              fontSize="small"
+              sx={{ padding: "5px" }}
+            >
+              {hour.time}
+            </Typography>
+            <Typography
+              key={index}
+              variant="button"
+              fontSize="small"
+              sx={{ padding: "5px" }}
+            >
+              {hour.degree}
+            </Typography>
           </div>
-          <div className="weather-degrees">
-            {props.sixHoursDegrees.map((data, index) => (
-              <Typography key={index} variant="button" fontSize="small">
-                {data}
-              </Typography>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

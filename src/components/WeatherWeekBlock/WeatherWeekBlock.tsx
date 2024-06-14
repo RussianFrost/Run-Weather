@@ -6,9 +6,9 @@ import "../WeatherWeekBlock/WeatherWeekBlock.css";
 
 type WeatherDayProps = {
   city: string;
-  weatherData: string;
-  weatherAverage: string;
-  weatherStatus: string;
+  weatherCurrentDegree: string;
+  weatherHigherLowerDegree: string;
+  weatherCondition: string;
   sixHoursData: { time: string; degree: string }[];
 };
 
@@ -18,14 +18,14 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
       <div className="weather-now">
         <div className="weather-city">
           <Typography variant="button"> {props.city} </Typography>
-          <Typography variant="h4"> {props.weatherData} </Typography>
+          <Typography variant="h4"> {props.weatherCurrentDegree} </Typography>
         </div>
         <div className="weather-status">
           <WbSunnyIcon fontSize="small" sx={{ color: yellow[600] }} />
           <Typography variant="button" fontSize="small">
-            {props.weatherStatus}
+            {props.weatherCondition}
           </Typography>
-          <Typography variant="button">{props.weatherAverage}</Typography>
+          <Typography variant="button">{props.weatherHigherLowerDegree}</Typography>
         </div>
       </div>
       <div className="weather-week">

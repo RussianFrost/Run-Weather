@@ -26,9 +26,9 @@ const Home = () => {
       <div className="wearth-today-block">
         <WeatherWeekBlock
           city={"Sonoma"}
-          weatherData={"76°"}
-          weatherStatus={"Sunny"}
-          weatherAverage={"H:88° L:57°"}
+          weatherCurrentDegree={"76°"}
+          weatherCondition={"Sunny"}
+          weatherHigherLowerDegree={"H:88° L:57°"}
           sixHoursData={[
             { time: "1PM", degree: "84" },
             { time: "2PM", degree: "81" },

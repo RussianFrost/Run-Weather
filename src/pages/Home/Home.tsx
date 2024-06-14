@@ -5,10 +5,9 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./Home.css";
 import { Paper, Typography } from "@mui/material";
-import WeatherWeekBlock from "../../components/WearthWeekBlock";
-import WeatherMicroContainers from "../../components/WearthMicroContainers";
-import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer";
-import WeatherDayBlock from "../../components/WearthDayBlock";
+import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
+import WeatherMicroContainers from "../../components/WeatherMicroContainer/WeatherMicroContainers";
+import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WearthWelcomeContainer";
 
 const Home = () => {
   return (
@@ -16,121 +15,53 @@ const Home = () => {
       <Typography variant="h5" className="welcome-name">
         Добро пожаловать!
       </Typography>
-
-      <Paper
-        className="wearth-block"
-        variant="elevation"
-        elevation={1}
-        sx={{
-          backgroundColor: "#5d63d1",
-          color: "white",
-          borderRadius: "20px",
-        }}
-      >
-        <WeatherWelcomeContainer
-          time={"15:00 - 17:00"}
-          data={"24 С, 2 m/s"}
-        ></WeatherWelcomeContainer>
-      </Paper>
-
-      <Typography variant="button" className="wearth-typography-today">
+      <WeatherWelcomeContainer
+        time={"15:00 - 17:00"}
+        data={"24 С, 2 m/s"}
+        title={"Лучшее время бега:"}
+      ></WeatherWelcomeContainer>
+      <Typography variant="button" className="weather-typography-today">
         Погода сегодня:
       </Typography>
-      <Paper
-        className="wearth-today-block"
-        variant="elevation"
-        elevation={1}
-        sx={{
-          backgroundColor: "#5d63d1",
-          color: "white",
-        }}
-      >
-        <WeatherDayBlock
+      <div className="wearth-today-block">
+        <WeatherWeekBlock
           city={"Sonoma"}
-          weatherdata={"76°"}
-          weatherstatus={"Sunny"}
-          weatheraverage={"H:88° L:57°"}
-        ></WeatherDayBlock>
-        <div className="wearth-week">
-          <WeatherWeekBlock time={"9AM"} degrees={"77°"}></WeatherWeekBlock>
-          <WeatherWeekBlock time={"10AM"} degrees={"80°"}></WeatherWeekBlock>
-          <WeatherWeekBlock time={"11AM"} degrees={"81°"}></WeatherWeekBlock>
-          <WeatherWeekBlock time={"12AM"} degrees={"81°"}></WeatherWeekBlock>
-          <WeatherWeekBlock time={"1PM"} degrees={"85°"}></WeatherWeekBlock>
-          <WeatherWeekBlock time={"2PM"} degrees={"88°"}></WeatherWeekBlock>
-        </div>
-      </Paper>
+          weatherData={"76°"}
+          weatherStatus={"Sunny"}
+          weatherAverage={"H:88° L:57°"}
+          sixHoursTime={["1AM", "2AM", "3AM", "4AM", "5AM", "6AM"]}
+          sixHoursDegrees={["76°", "75°", "84°", "74°", "87°", "71°"]}
+        ></WeatherWeekBlock>
+      </div>
       <div className="weather-all-micro-blocks">
-        <Paper
-          className="micro-blocks"
-          sx={{
-            backgroundColor: "#5d63d1",
-            color: "white",
-            borderRadius: "20px",
-          }}
-        >
-          <div className="weather-micro-container">
-            <WeatherMicroContainers
-              type={"UV INDEX"}
-              data={"4"}
-              uv={"Moderate"}
-              time={""}
-              weather={""}
-            ></WeatherMicroContainers>
-          </div>
-        </Paper>
-        <Paper
-          className="micro-blocks"
-          sx={{
-            backgroundColor: "#5d63d1",
-            color: "white",
-            borderRadius: "20px",
-          }}
-        >
-          <WeatherMicroContainers
-            type={"SUNRICE"}
-            data={"5:28 AM"}
-            uv={""}
-            time={"Sunset: 7:25PM"}
-            weather={""}
-          ></WeatherMicroContainers>
-        </Paper>
-        <Paper
-          className="micro-blocks"
-          sx={{
-            backgroundColor: "#5d63d1",
-            color: "white",
-            borderRadius: "20px",
-          }}
-        >
-          <div className="weather-micro-container">
-            <WeatherMicroContainers
-              type={"WIND"}
-              data={"9.7 km/h"}
-              uv={""}
-              time={""}
-              weather={""}
-            ></WeatherMicroContainers>
-          </div>
-        </Paper>
-        <Paper
-          className="micro-blocks"
-          sx={{
-            backgroundColor: "#5d63d1",
-            color: "white",
-            borderRadius: "20px",
-          }}
-        >
-          <div className="weather-micro-container">
-            <WeatherMicroContainers
-              type={"FEELS LIKE"}
-              data={"19°"}
-              uv={""}
-              time={""}
-              weather={""}
-            ></WeatherMicroContainers>
-          </div>
-        </Paper>
+        <WeatherMicroContainers
+          type={"UV INDEX"}
+          data={"4"}
+          uv={"Moderate"}
+          time={""}
+          weather={""}
+        ></WeatherMicroContainers>
+        <WeatherMicroContainers
+          type={"SUNRICE"}
+          data={"5:28 AM"}
+          uv={""}
+          time={"Sunset: 7:25PM"}
+          weather={""}
+        ></WeatherMicroContainers>
+        <WeatherMicroContainers
+          type={"WIND"}
+          data={"9.7 km/h"}
+          uv={""}
+          time={""}
+          weather={""}
+        ></WeatherMicroContainers>
+        <WeatherMicroContainers
+          type={"FEELS LIKE"}
+          data={"19°"}
+          uv={""}
+          time={""}
+          weather={""}
+        ></WeatherMicroContainers>
       </div>
     </div>
   );

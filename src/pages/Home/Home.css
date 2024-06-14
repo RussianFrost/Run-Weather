@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 120vh;
+  height: 100vh;
 }
 
 /*Блок с лучшим временем*/
@@ -16,13 +16,7 @@
 .better-time-text {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-.wearth-block {
-  width: 300px;
-  height: auto;
-  background-color: #5d63d1;
-  border-radius: 20px;
-}
-.wearth-typography-today {
+.weather-typography-today {
   padding-top: 10px;
   padding-bottom: 5px;
 }
@@ -30,64 +24,20 @@
   padding-top: 5px;
   padding-bottom: 10px;
 }
-.values-wearth {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 10px;
-}
-.values-wearth-name {
-  padding-top: 10px;
-  padding-left: 15px;
-  padding-bottom: 10px;
-}
-
-/*Блок с общей погодой*/
-.wearth-today-block {
-  width: auto;
-  height: auto;
-  padding: 15px 15px 15px 15px;
-  /*float: left;*/
-  border-radius: 20px !important;
-}
-.wearth-city {
-  display: flex;
-  flex-direction: column;
-  padding-left: 7px;
-}
-.wearth-status {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-right: 7px;
-}
-.wearth-day {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 7px;
-  padding-right: 7px;
-}
-.wearth-week {
-  display: flex;
-  align-self: flex-end;
-}
-.wearth-block-status {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 10px;
-}
 
 /*Верстка микро блоков*/
-
 .micro-blocks {
   width: 130px;
   height: 130px;
   display: flex;
-  align-items: column;
+  flex-direction: column;
   padding: 10px;
   margin-left: 10px;
   margin-right: 5px;
   margin-bottom: 20px;
+  background-color: #5d63d1;
+  border-radius: 20px;
+  color: white;
 }
 .weather-all-micro-blocks {
   margin-top: 25px;

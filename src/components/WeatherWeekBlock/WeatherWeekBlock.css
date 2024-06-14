@@ -1,0 +1,48 @@
+.weather-block-status {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  border-radius: 20px;
+  color: white;
+  background-color: #5d63d1;
+  width: 270px;
+  height: auto;
+  padding: 15px 15px 15px 15px;
+}
+.weather-city {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 7px;
+}
+.weather-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 7px;
+}
+.weather-week {
+  display: flex;
+}
+.weather-day {
+  display: flex;
+  
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.weather-now {
+  display: flex;
+  justify-content: space-between;
+}
+.weather-hour{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-degress{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

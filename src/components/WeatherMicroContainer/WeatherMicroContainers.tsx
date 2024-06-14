@@ -1,6 +1,6 @@
 import React from "react";
-import { Paper, Typography } from "@mui/material";
-import wearthWeekBlock from "./WearthWeekBlock";
+import { Typography } from "@mui/material";
+import "../WeatherMicroContainer/WeatherMicroContainer.css";
 
 type WearherMicroBlocks = {
   type: any;
@@ -12,12 +12,8 @@ type WearherMicroBlocks = {
 
 const WeatherMicroContainers: React.FC<WearherMicroBlocks> = (wearhermicro) => {
   return (
-    <div className="wether-micro-name">
-      <Typography
-        variant="button"
-        className="micro-name"
-        sx={{ color: "rgb(152,177,212)" }}
-      >
+    <div className="micro-blocks">
+      <Typography variant="button" className="micro-name">
         {wearhermicro.type}
       </Typography>
       <Typography variant="h4">{wearhermicro.data}</Typography>

@@ -3,17 +3,17 @@ import {Avatar, Card, CardContent, Typography, Button, ButtonGroup} from '@mui/m
 import TuneRoundedIcon from '@mui/icons-material/TuneRounded';
 import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
 import PersonIcon from '@mui/icons-material/Person';
-import "./Profile.css";
+import "./UserProfile.css";
 
 const UserProfile = () => {
     const buttons = [
-        <Button key="one" size="large" className="button" startIcon={<PersonIcon className="button-icon" />}>
+        <Button key="one" size="large" className="profile-button" startIcon={<PersonIcon className="button-icon" />}>
             Профиль
         </Button>,
-        <Button key="two" size="large" className="button" startIcon={<TuneRoundedIcon className="button-icon" />}>
+        <Button key="two" size="large" className="profile-button" startIcon={<TuneRoundedIcon className="button-icon" />}>
             Настройки времени
         </Button>,
-        <Button key="three" size="large" className="button"  startIcon={<EmojiEventsRoundedIcon className="button-icon" />}>
+        <Button key="three" size="large" className="profile-button" startIcon={<EmojiEventsRoundedIcon className="button-icon" />}>
             Статистика
         </Button>,
     ];
@@ -21,17 +21,17 @@ const UserProfile = () => {
 
     return (
         <React.Fragment>
-            <Card className="card-up">
-                <CardContent className="card-contentUp">
+            <Card className="profile-header">
+                <CardContent className="header-content">
                     <Avatar className="avatar" alt="Avatar" src="../../static/images/monkeAvatar.jpg" />
                     <Typography variant="h5" component="div" mt={2} color="white">
                         Лучший дизайнер
                     </Typography>
                 </CardContent>
             </Card>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Card className="card-down">
-                    <CardContent className="card-contentDown">
+            <div className="container">
+                <Card className="profile-menu">
+                    <CardContent className="profile-menu-content">
                         <ButtonGroup
                             orientation="vertical"
                             aria-label="Vertical button group"

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import React from "react";
 import App from "../App";
-import Profile from "../pages/Profile/Profile";
+import Profile from "../pages/Profile/UserProfile";
 import Home from "../pages/Home/Home";
 import CreateSchedule from "../pages/CreateSchedule/CreateSchedule";
 import { CREATE_SCHEDULE_PATH, HOME_PATH, PROFILE_PATH } from "./RoutesPath";

@@ -1,0 +1,16 @@
+.micro-blocks {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  background-color: #5d63d1;
+  border-radius: 20px;
+  color: white;
+}
+.micro-name {
+  color: rgb(152, 177, 212);
+}

@@ -6,7 +6,11 @@ import AddchartIcon from "@mui/icons-material/Addchart";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import { Link, Outlet } from "react-router-dom";
-import { CREATE_SCHEDULE_PATH, HOME_PATH, PROFILE_PATH } from "./routes/RoutesPath";
+import {
+  CREATE_SCHEDULE_PATH,
+  HOME_PATH,
+  PROFILE_PATH,
+} from "./routes/RoutesPath";
 
 function App() {
   const [value, setValue] = React.useState(0);

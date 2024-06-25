@@ -1,0 +1,18 @@
+.text-header{
+    text-align: center !important;
+}
+
+.training-date{
+    text-align: center !important;
+    font-size: 20px !important;
+}
+
+.div-button{
+    text-align: center !important;
+}
+
+.button-further{
+    border-radius: 25px !important;
+    margin-left: 200px !important;
+    background-color: #5D63D1;
+}

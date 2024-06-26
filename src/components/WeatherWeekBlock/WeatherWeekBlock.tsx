@@ -1,4 +1,5 @@
 import React from "react";
+import {useEffect} from "react";
 import { Typography } from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { yellow } from "@mui/material/colors";
@@ -12,13 +13,14 @@ type WeatherDayProps = {
   sixHoursData: { time: string; degree: string }[];
 };
 
+
 const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
   return (
     <div className="weather-block-status">
       <div className="weather-now">
         <div className="weather-city">
           <Typography variant="button"> {props.city} </Typography>
-          <Typography variant="h4"> {props.weatherCurrentDegree} </Typography>
+          <Typography variant="h4"> {props.weatherCurrentDegree}° </Typography>
         </div>
         <div className="weather-status">
           <WbSunnyIcon className="color-icon" fontSize="small" />
@@ -30,9 +32,8 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
       </div>
       <div className="weather-week">
         {props.sixHoursData.map((hour, index) => (
-          <div className="weather-day">
+          <div key={index} className="weather-day">
             <Typography
-              key={index}
               variant="button"
               fontSize="small"
               className="typography-time"
@@ -40,7 +41,6 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
               {hour.time}
             </Typography>
             <Typography
-              key={index}
               variant="button"
               fontSize="small"
               className="typography-degree"

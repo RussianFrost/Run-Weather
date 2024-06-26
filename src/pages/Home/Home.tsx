@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -8,8 +8,23 @@ import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
+import axios from "axios";
+
 
 const Home = () => {
+
+    const [data, setData] = useState<any>(null)
+
+    useEffect(() => {
+            axios.get("https://api.weatherapi.com/v1/forecast.json?q=Omsk&days=1&key=")
+                .then((res) => {
+                    setData(res.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+    },[])
+
   return (
     <div className="home-page">
       <Typography variant="h5" className="welcome-name">
@@ -25,8 +40,8 @@ const Home = () => {
       </Typography>
       <div className="wearth-today-block">
         <WeatherWeekBlock
-          city={"Sonoma"}
-          weatherCurrentDegree={"76°"}
+          city={data?.location.name}
+          weatherCurrentDegree={data?.current.temp_c}
           weatherCondition={"Sunny"}
           weatherHigherLowerDegree={"H:88° L:57°"}
           sixHoursData={[
@@ -42,20 +57,20 @@ const Home = () => {
       <div className="weather-all-micro-blocks">
         <WeatherMicroContainer
           title={"UV INDEX"}
-          data={"4"}
-          desctiption={"Moderate"}
+          data={data?.current.uv}
+          description={"Moderate"}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
-          title={"SUNRICE"}
-          data={"5:28 AM"}
+          title={"SUNRISE"}
+          data={data?.forecast.forecastday[0].astro.sunrise}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"WIND"}
-          data={"9.7 km/h"}
+          data={data?.current.wind_kph}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
-          data={"19°"}
+          data={data?.current.feelslike_c}
         ></WeatherMicroContainer>
       </div>
     </div>

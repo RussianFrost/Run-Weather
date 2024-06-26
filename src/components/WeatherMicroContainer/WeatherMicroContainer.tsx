@@ -5,7 +5,7 @@ import "../WeatherMicroContainer/WeatherMicroContainer.css";
 type WeatherMicroBlocks = {
   title: string;
   data: string;
-  desctiption?: string;
+  description?: string;
 };
 
 const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
@@ -15,7 +15,7 @@ const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
         {weatherMicro.title}
       </Typography>
       <Typography variant="h4">{weatherMicro.data}</Typography>
-      <Typography variant="h6">{weatherMicro.desctiption}</Typography>
+      <Typography variant="h6">{weatherMicro.description}</Typography>
     </div>
   );
 };

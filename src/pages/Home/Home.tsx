@@ -66,11 +66,11 @@ const Home = () => {
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"WIND"}
-          data={data?.current.wind_kph}
-        ></WeatherMicroContainer>
+          data={data?.current.wind_kph + " km/h"}
+         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
-          data={data?.current.feelslike_c}
+          data={data?.current.feelslike_c + "°"}
         ></WeatherMicroContainer>
       </div>
     </div>

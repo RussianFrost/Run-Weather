@@ -1,8 +1,6 @@
 import React from "react";
-import {useEffect} from "react";
 import { Typography } from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { yellow } from "@mui/material/colors";
 import "../WeatherWeekBlock/WeatherWeekBlock.css";
 
 type WeatherDayProps = {

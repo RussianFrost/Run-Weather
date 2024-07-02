@@ -14,8 +14,8 @@ const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
       <Typography variant="button" className="micro-name">
         {weatherMicro.title}
       </Typography>
-      <Typography variant="h4">{weatherMicro.data}</Typography>
-      <Typography variant="h6">{weatherMicro.description}</Typography>
+      <Typography variant="h4" className="micro-data">{weatherMicro.data}</Typography>
+      <Typography variant="h6" className="micro-data">{weatherMicro.description}</Typography>
     </div>
   );
 };

@@ -13,4 +13,8 @@
 }
 .micro-name {
   color: rgb(152, 177, 212);
+  padding-left: 5px;
+}
+.micro-data{
+  padding-left: 5px;
 }

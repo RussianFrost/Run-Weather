@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -8,22 +8,12 @@ import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import axios from "axios";
+import { useWeatherApi } from "../../service/useWeatherApi";
 
 
 const Home = () => {
-
-    const [data, setData] = useState<any>(null)
-
-    useEffect(() => {
-            axios.get("https://api.weatherapi.com/v1/forecast.json?q=Omsk&days=1&key=")
-                .then((res) => {
-                    setData(res.data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-    },[])
+  const data = useWeatherApi();
+  
 
   return (
     <div className="home-page">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -13,7 +13,10 @@ import { useWeatherApi } from "../../service/useWeatherApi";
 
 const Home = () => {
   const data = useWeatherApi();
-  
+
+  useEffect(() =>{
+      console.log(navigator)
+  }, []);
 
   return (
     <div className="home-page">

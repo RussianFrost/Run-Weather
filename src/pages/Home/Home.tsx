@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -8,15 +8,22 @@ import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import { useWeatherApi } from "../../service/useWeatherApi";
+import {useWeathersApi} from "../../service/useWeathersApi";
 
 
 const Home = () => {
-  const data = useWeatherApi();
 
-  useEffect(() =>{
-      console.log(navigator)
-  }, []);
+    const [weatherDay, setWeatherDay] = useState<any>(null);
+
+    useEffect(() => {
+        useWeathersApi.getDayWeather().then((weather) => {
+            if (weather && weather.data) {
+                setWeatherDay(weather.data);
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+    }, []);
 
   return (
     <div className="home-page">
@@ -33,8 +40,8 @@ const Home = () => {
       </Typography>
       <div className="wearth-today-block">
         <WeatherWeekBlock
-          city={data?.location.name}
-          weatherCurrentDegree={data?.current.temp_c}
+          city={weatherDay?.location.name}
+          weatherCurrentDegree={weatherDay?.current.temp_c}
           weatherCondition={"Sunny"}
           weatherHigherLowerDegree={"H:88° L:57°"}
           sixHoursData={[
@@ -50,20 +57,20 @@ const Home = () => {
       <div className="weather-all-micro-blocks">
         <WeatherMicroContainer
           title={"UV INDEX"}
-          data={data?.current.uv}
+          data={weatherDay?.current.uv}
           description={"Moderate"}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"SUNRISE"}
-          data={data?.forecast.forecastday[0].astro.sunrise}
+          data={weatherDay?.forecast.forecastday[0].astro.sunrise}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"WIND"}
-          data={data?.current.wind_kph + " km/h"}
+          data={weatherDay?.current.wind_kph + " km/h"}
          ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
-          data={data?.current.feelslike_c + "°"}
+          data={weatherDay?.current.feelslike_c + "°"}
         ></WeatherMicroContainer>
       </div>
     </div>

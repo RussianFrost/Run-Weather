@@ -8,7 +8,7 @@ import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import {useWeathersApi} from "../../service/useWeathersApi";
+import {useWeathersApi} from "../../services/useWeathersApi";
 
 
 const Home = () => {

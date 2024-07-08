@@ -1,31 +1,29 @@
-import axios from "axios";
-import {BackUrls} from "./backendApi/backUrls";
-import {KeyStorage} from "../utils/keys";
-import { useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { BackUrls } from "./backendApi/backUrls";
+import { KeyStorage } from "../utils/keys";
 
 export class useWeathersApi {
-    static geoPosition(){
-        return useEffect(() => {
-            const [city, setCity] = useState('');
-            if ('geolocation' in navigator) {
-              navigator.geolocation.getCurrentPosition((position) => {
-                fetch(`https://geocode.xyz/${position.coords.latitude},${position.coords.longitude}?json=1`)
-                  .then(response => response.json())
-                  .then(data => {
-                    const city = data.city;
-                    setCity(city);
-                    console.log(city);
-                  })
-                  .catch(error => {
-                    console.error('Ошибка при получении данных', error);
-                  });
-              });
-            } else {
-              console.log('Geolocation не поддерживается вашим браузером');
-            }
-          }, []);
-    }
-    static getDayWeather(){
-        return axios.get(`${BackUrls.Prod}/forecast.json?q=${this.geoPosition}&days=1&key=${KeyStorage.WEATHER_API_KEY}`)
-    }
+  static async getCityByIp() {
+    return fetch("https://ipapi.co/json/")
+      .then((response) => response.json())
+      .then((data) => {
+        return data.city;
+      })
+      .catch((error) => {
+        console.error("Ошибка при получении города", error);
+        return null;
+      });
+  }
+
+  static async getDayWeather(): Promise<AxiosResponse<any, any> | null> {
+    const city = await this.getCityByIp();
+    return axios
+      .get(
+        `${BackUrls.Prod}/forecast.json?q=${city}&days=1&key=${KeyStorage.WEATHER_API_KEY}`,
+      )
+      .catch((error) => {
+        console.error("Ошибка при получении погоды", error);
+        return null;
+      });
+  }
 }

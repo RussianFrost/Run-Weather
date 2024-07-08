@@ -11,7 +11,6 @@ type WeatherDayProps = {
   sixHoursData: { time: string; degree: string }[];
 };
 
-
 const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
   return (
     <div className="weather-block-status">
@@ -25,7 +24,9 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
           <Typography variant="button" fontSize="small">
             {props.weatherCondition}
           </Typography>
-          <Typography variant="button">{props.weatherHigherLowerDegree}</Typography>
+          <Typography variant="button">
+            {props.weatherHigherLowerDegree}
+          </Typography>
         </div>
       </div>
       <div className="weather-week">

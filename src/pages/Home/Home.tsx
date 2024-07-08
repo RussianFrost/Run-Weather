@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
@@ -8,23 +8,21 @@ import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import {useWeathersApi} from "../../services/useWeathersApi";
-
+import { useWeathersApi } from "../../services/useWeathersApi";
 
 const Home = () => {
+  const [weatherDay, setWeatherDay] = useState<any>(null);
 
-    const [weatherDay, setWeatherDay] = useState<any>(null);
-    useWeathersApi.geoPosition();
-
-    useEffect(() => {
-        useWeathersApi.getDayWeather().then((weather) => {
-            if (weather && weather.data) {
-                setWeatherDay(weather.data);
-            }
-        }).catch(error => {
-            console.error(error);
-        });
-    }, []); 
+  useEffect(() => {
+    useWeathersApi
+      .getDayWeather()
+      .then((weather) => {
+        setWeatherDay(weather?.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div className="home-page">
@@ -68,7 +66,7 @@ const Home = () => {
         <WeatherMicroContainer
           title={"WIND"}
           data={weatherDay?.current.wind_kph + " km/h"}
-         ></WeatherMicroContainer>
+        ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
           data={weatherDay?.current.feelslike_c + "°"}

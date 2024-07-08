@@ -35,14 +35,14 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.color-icon{
+.color-icon {
   color: yellow;
 }
 
-.typography-time{
+.typography-time {
   padding: 5px;
 }
 
-.typography-degree{
+.typography-degree {
   padding: 5px;
 }

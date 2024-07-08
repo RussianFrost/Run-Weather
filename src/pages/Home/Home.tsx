@@ -14,6 +14,7 @@ import {useWeathersApi} from "../../services/useWeathersApi";
 const Home = () => {
 
     const [weatherDay, setWeatherDay] = useState<any>(null);
+    useWeathersApi.geoPosition();
 
     useEffect(() => {
         useWeathersApi.getDayWeather().then((weather) => {
@@ -23,7 +24,7 @@ const Home = () => {
         }).catch(error => {
             console.error(error);
         });
-    }, []);
+    }, []); 
 
   return (
     <div className="home-page">

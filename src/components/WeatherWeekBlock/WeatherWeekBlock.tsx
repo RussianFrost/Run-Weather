@@ -17,7 +17,9 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
       <div className="weather-now">
         <div className="weather-city">
           <Typography variant="button"> {props.city} </Typography>
-          <Typography variant="h4">{props.weatherCurrentDegree}&deg;</Typography>
+          <Typography variant="h4">
+            {props.weatherCurrentDegree}&deg;
+          </Typography>
         </div>
         <div className="weather-status">
           <WbSunnyIcon className="color-icon" fontSize="small" />

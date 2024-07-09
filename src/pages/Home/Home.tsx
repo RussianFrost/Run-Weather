@@ -29,13 +29,15 @@ const Home = () => {
       }[];
     };
   };
-  const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(null);
+  const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
+    null,
+  );
 
   useEffect(() => {
     getTodayWeather();
   }, []);
 
-  function getTodayWeather(){
+  function getTodayWeather() {
     useWeathersApi
       .getDayWeather()
       .then((weather) => {
@@ -91,8 +93,8 @@ const Home = () => {
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
-          data={todayWeatherData?.current.feelslike_c + '\u00B0'}
-        ></WeatherMicroContainer> 
+          data={todayWeatherData?.current.feelslike_c + "\u00B0"}
+        ></WeatherMicroContainer>
       </div>
     </div>
   );

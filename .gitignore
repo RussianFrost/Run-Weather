@@ -6,6 +6,7 @@
 /.idea/discord.xml
 /.pnp
 .pnp.js
+/src/utils/keys.ts
 
 # testing
 /coverage

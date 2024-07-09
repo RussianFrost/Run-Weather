@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import { yellow } from "@mui/material/colors";
 import "../WeatherWeekBlock/WeatherWeekBlock.css";
 
 type WeatherDayProps = {
@@ -18,32 +17,34 @@ const WeatherDayBlock: React.FC<WeatherDayProps> = (props) => {
       <div className="weather-now">
         <div className="weather-city">
           <Typography variant="button"> {props.city} </Typography>
-          <Typography variant="h4"> {props.weatherCurrentDegree} </Typography>
+          <Typography variant="h4">
+            {props.weatherCurrentDegree}&deg;
+          </Typography>
         </div>
         <div className="weather-status">
-          <WbSunnyIcon fontSize="small" sx={{ color: yellow[600] }} />
+          <WbSunnyIcon className="color-icon" fontSize="small" />
           <Typography variant="button" fontSize="small">
             {props.weatherCondition}
           </Typography>
-          <Typography variant="button">{props.weatherHigherLowerDegree}</Typography>
+          <Typography variant="button">
+            {props.weatherHigherLowerDegree}
+          </Typography>
         </div>
       </div>
       <div className="weather-week">
         {props.sixHoursData.map((hour, index) => (
-          <div className="weather-day">
+          <div key={index} className="weather-day">
             <Typography
-              key={index}
               variant="button"
               fontSize="small"
-              sx={{ padding: "5px" }}
+              className="typography-padding-5"
             >
               {hour.time}
             </Typography>
             <Typography
-              key={index}
               variant="button"
               fontSize="small"
-              sx={{ padding: "5px" }}
+              className="typography-padding-5"
             >
               {hour.degree}
             </Typography>

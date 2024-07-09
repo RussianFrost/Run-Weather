@@ -9,26 +9,9 @@ import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
 import { useWeathersApi } from "../../services/useWeathersApi";
+import { WeatherData } from "../../services/models/weather-data";
 
 const Home = () => {
-  type WeatherData = {
-    location: {
-      name: string;
-    };
-    current: {
-      temp_c: string;
-      uv: string;
-      wind_kph: number;
-      feelslike_c: number;
-    };
-    forecast: {
-      forecastday: {
-        astro: {
-          sunrise: string;
-        };
-      }[];
-    };
-  };
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
     null,
   );
@@ -41,7 +24,7 @@ const Home = () => {
     useWeathersApi
       .getDayWeather()
       .then((weather) => {
-        setTodayWeatherData(weather?.data);
+        setTodayWeatherData(weather?.data || null);
       })
       .catch((error) => {
         console.error(error);

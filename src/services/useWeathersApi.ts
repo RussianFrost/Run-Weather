@@ -1,10 +1,11 @@
 import axios, { AxiosResponse } from "axios";
 import { BackUrls } from "./backendApi/backUrls";
 import { KeyStorage } from "../utils/keys";
+import { WeatherData } from "./models/weather-data";
 
 export class useWeathersApi {
   static async getCityByIp() {
-    return fetch(`${BackUrls.CityApi}`)
+    return fetch(BackUrls.CityApi)
       .then((response) => response.json())
       .then((data) => {
         return data.city;
@@ -15,7 +16,7 @@ export class useWeathersApi {
       });
   }
 
-  static async getDayWeather(): Promise<AxiosResponse<any, any> | null> {
+  static async getDayWeather(): Promise<AxiosResponse<WeatherData, any> | null> {
     const city = await this.getCityByIp();
     return axios
       .get(

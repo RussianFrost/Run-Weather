@@ -11,18 +11,40 @@ import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/Wea
 import { useWeathersApi } from "../../services/useWeathersApi";
 
 const Home = () => {
-  const [weatherDay, setWeatherDay] = useState<any>(null);
+  type WeatherData = {
+    location: {
+      name: string;
+    };
+    current: {
+      temp_c: string;
+      uv: string;
+      wind_kph: number;
+      feelslike_c: number;
+    };
+    forecast: {
+      forecastday: {
+        astro: {
+          sunrise: string;
+        };
+      }[];
+    };
+  };
+  const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {
+    getTodayWeather();
+  }, []);
+
+  function getTodayWeather(){
     useWeathersApi
       .getDayWeather()
       .then((weather) => {
-        setWeatherDay(weather?.data);
+        setTodayWeatherData(weather?.data);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }
 
   return (
     <div className="home-page">
@@ -39,8 +61,8 @@ const Home = () => {
       </Typography>
       <div className="wearth-today-block">
         <WeatherWeekBlock
-          city={weatherDay?.location.name}
-          weatherCurrentDegree={weatherDay?.current.temp_c}
+          city={todayWeatherData?.location.name || ""}
+          weatherCurrentDegree={todayWeatherData?.current.temp_c || ""}
           weatherCondition={"Sunny"}
           weatherHigherLowerDegree={"H:88° L:57°"}
           sixHoursData={[
@@ -56,21 +78,21 @@ const Home = () => {
       <div className="weather-all-micro-blocks">
         <WeatherMicroContainer
           title={"UV INDEX"}
-          data={weatherDay?.current.uv}
+          data={todayWeatherData?.current.uv || ""}
           description={"Moderate"}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"SUNRISE"}
-          data={weatherDay?.forecast.forecastday[0].astro.sunrise}
+          data={todayWeatherData?.forecast.forecastday[0].astro.sunrise || ""}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"WIND"}
-          data={weatherDay?.current.wind_kph + " km/h"}
+          data={todayWeatherData?.current.wind_kph + " km/h"}
         ></WeatherMicroContainer>
         <WeatherMicroContainer
           title={"FEELS LIKE"}
-          data={weatherDay?.current.feelslike_c + "°"}
-        ></WeatherMicroContainer>
+          data={todayWeatherData?.current.feelslike_c + '\u00B0'}
+        ></WeatherMicroContainer> 
       </div>
     </div>
   );

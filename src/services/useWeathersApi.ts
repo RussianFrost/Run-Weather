@@ -4,7 +4,7 @@ import { KeyStorage } from "../utils/keys";
 
 export class useWeathersApi {
   static async getCityByIp() {
-    return fetch("https://ipapi.co/json/")
+    return fetch(`${BackUrls.CityApi}`)
       .then((response) => response.json())
       .then((data) => {
         return data.city;
@@ -19,7 +19,7 @@ export class useWeathersApi {
     const city = await this.getCityByIp();
     return axios
       .get(
-        `${BackUrls.Prod}/forecast.json?q=${city}&days=1&key=${KeyStorage.WEATHER_API_KEY}`,
+        `${BackUrls.WeatherApi}/forecast.json?q=${city}&days=1&key=${KeyStorage.WEATHER_API_KEY}`,
       )
       .catch((error) => {
         console.error("Ошибка при получении погоды", error);

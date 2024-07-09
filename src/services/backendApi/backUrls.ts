@@ -1,7 +1,5 @@
-export class BackUrls {
-  private static _Prod: string = "https://api.weatherapi.com/v1/";
+export enum BackUrls {
+  WeatherApi = "https://api.weatherapi.com/v1/",
+  CityApi = "https://ipapi.co/json/"
 
-  public static get Prod(): string {
-    return this._Prod;
-  }
 }

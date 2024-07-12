@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+import "@fontsource/inter";
 import "./Home.css";
 import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
@@ -82,5 +79,6 @@ const Home = () => {
     </div>
   );
 };
-
+   
 export default Home;
+ 

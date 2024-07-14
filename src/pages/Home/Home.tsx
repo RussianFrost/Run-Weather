@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "@fontsource/inter";
+import "@fontsource/inter/";
 import "./Home.css";
 import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
@@ -7,6 +7,7 @@ import WeatherMicroContainer from "../../components/WeatherMicroContainer/Weathe
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
 import { useWeathersApi } from "../../services/useWeathersApi";
 import { WeatherData } from "../../services/models/weather-data";
+import WeatherMainComponent from "../../components/WeatherMainComponent/WeatherMainComponent";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
@@ -30,6 +31,7 @@ const Home = () => {
 
   return (
     <div className="home-page">
+        <WeatherMainComponent></WeatherMainComponent>
       <Typography variant="h5" className="welcome-name">
         Добро пожаловать!
       </Typography>

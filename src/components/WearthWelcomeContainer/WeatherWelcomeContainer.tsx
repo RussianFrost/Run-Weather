@@ -1,6 +1,5 @@
 import React from "react";
 import "../WearthWelcomeContainer/WeatherWelcomeContainer.css";
-import { Typography } from "@mui/material";
 
 type WeatherDayBlock = {
   title: string;
@@ -11,15 +10,15 @@ type WeatherDayBlock = {
 const WeatherWelcomeContainer: React.FC<WeatherDayBlock> = (weatherDay) => {
   return (
     <div className="weather-block">
-      <Typography variant="body1" className="values-weather-name">
+      <p className="values-weather-name">
         {weatherDay.title}
-      </Typography>
-      <Typography variant="h5" className="values-weather">
+      </p>
+      <h1 className="values-weather">
         {weatherDay.time}
-      </Typography>
-      <Typography variant="h6" className="values-weather">
+      </h1>
+      <h3 className="values-weather">
         {weatherDay.data}
-      </Typography>
+      </h3>
     </div>
   );
 };

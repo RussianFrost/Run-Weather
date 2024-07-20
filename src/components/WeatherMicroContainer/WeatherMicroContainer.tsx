@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "@mui/material";
 import "../WeatherMicroContainer/WeatherMicroContainer.css";
 
 type WeatherMicroBlocks = {
@@ -11,15 +10,15 @@ type WeatherMicroBlocks = {
 const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
   return (
     <div className="micro-blocks">
-      <Typography variant="button" className="micro-name">
+      <p className="micro-name">
         {weatherMicro.title}
-      </Typography>
-      <Typography variant="h4" className="micro-data">
+      </p>
+      <h1 className="micro-data">
         {weatherMicro.data}
-      </Typography>
-      <Typography variant="h6" className="micro-data">
+      </h1>
+      <h2 className="micro-data">
         {weatherMicro.description}
-      </Typography>
+      </h2>
     </div>
   );
 };

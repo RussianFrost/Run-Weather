@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "@fontsource/inter/";
 import "./Home.css";
-import { Typography } from "@mui/material";
 import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
 import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
@@ -32,17 +31,17 @@ const Home = () => {
   return (
     <div className="home-page">
         <WeatherMainComponent></WeatherMainComponent>
-      <Typography variant="h5" className="welcome-name">
+      <h2 className="welcome-name">
         Добро пожаловать!
-      </Typography>
+      </h2>
       <WeatherWelcomeContainer
         time={"15:00 - 17:00"}
         data={"24 С, 2 m/s"}
         title={"Лучшее время бега:"}
       ></WeatherWelcomeContainer>
-      <Typography variant="button" className="weather-typography-today">
+      <h3 className="weather-typography-today">
         Погода сегодня:
-      </Typography>
+      </h3>
       <div className="wearth-today-block">
         <WeatherWeekBlock
           city={todayWeatherData?.location.name || ""}

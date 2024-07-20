@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
 import { BackUrls } from "./backendApi/backUrls";
-import { KeyStorage } from "../utils/keys";
 import { WeatherData } from "./models/weather-data";
 
 export class useWeathersApi {
@@ -20,7 +19,7 @@ export class useWeathersApi {
     const city = await this.getCityByIp();
     return axios
       .get(
-        `${BackUrls.WeatherApi}/forecast.json?q=${city}&days=1&key=${KeyStorage.WEATHER_API_KEY}`,
+        `${BackUrls.WeatherApi}/forecast.json?q=${city}&days=1&key=${process.env.REACT_APP_WEATHER_API_KEY}`,
       )
       .catch((error) => {
         console.error("Ошибка при получении погоды", error);

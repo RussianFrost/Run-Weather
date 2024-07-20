@@ -7,6 +7,7 @@ import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/Wea
 import { useWeathersApi } from "../../services/useWeathersApi";
 import { WeatherData } from "../../services/models/weather-data";
 import WeatherMainComponent from "../../components/WeatherMainComponent/WeatherMainComponent";
+import WeatherScheduleDay from "../../components/WeatherScheduleDay/WeatherScheduleDay";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
@@ -31,6 +32,7 @@ const Home = () => {
   return (
     <div className="home-page">
         <WeatherMainComponent></WeatherMainComponent>
+        <WeatherScheduleDay></WeatherScheduleDay>
       <h2 className="welcome-name">
         Добро пожаловать!
       </h2>

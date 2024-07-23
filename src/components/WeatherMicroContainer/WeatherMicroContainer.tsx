@@ -10,15 +10,9 @@ type WeatherMicroBlocks = {
 const WeatherMicroContainer: React.FC<WeatherMicroBlocks> = (weatherMicro) => {
   return (
     <div className="micro-blocks">
-      <p className="micro-name">
-        {weatherMicro.title}
-      </p>
-      <h1 className="micro-data">
-        {weatherMicro.data}
-      </h1>
-      <h2 className="micro-data">
-        {weatherMicro.description}
-      </h2>
+      <p className="micro-name">{weatherMicro.title}</p>
+      <h1 className="micro-data">{weatherMicro.data}</h1>
+      <h2 className="micro-data">{weatherMicro.description}</h2>
     </div>
   );
 };

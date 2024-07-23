@@ -26,19 +26,6 @@
 }
 
 /*Верстка микро блоков*/
-.micro-blocks {
-  width: 130px;
-  height: 130px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin-left: 10px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-  background-color: #5d63d1;
-  border-radius: 20px;
-  color: white;
-}
 .weather-all-micro-blocks {
   margin-top: 25px;
   display: flex;
@@ -47,6 +34,11 @@
   width: 400px; /*90% для мобильной версии  30 для пк при 100% */
   height: auto;
 }
-.wether-micro-name {
+.weather-micro-name {
   padding-left: 3px;
+}
+
+.weather-schedule-title{
+  color: black;
+  padding-bottom: 10px;
 }

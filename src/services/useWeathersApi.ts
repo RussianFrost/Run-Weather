@@ -15,7 +15,10 @@ export class useWeathersApi {
       });
   }
 
-  static async getDayWeather(): Promise<AxiosResponse<WeatherData, any> | null> {
+  static async getDayWeather(): Promise<AxiosResponse<
+    WeatherData,
+    any
+  > | null> {
     const city = await this.getCityByIp();
     return axios
       .get(

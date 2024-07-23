@@ -1,46 +1,41 @@
 /*Настройки основного блока*/
-.main-container{
-    width: 100vw;
-    height: auto;
-    background-color: #3e8eff;
-    padding-top: 20px;
-    padding-bottom: 70px;
-    position: relative;
+.main-container {
+  width: 100vw;
+  height: auto;
+  background-color: #3e8eff;
+  padding-top: 20px;
+  padding-bottom: 70px;
+  position: relative;
 }
-.main-container .wave-svg{
-    margin-bottom: -80px;
-}
-.path{
-    width: auto;
-    height: 200px;
+.main-container .wave-svg {
+  margin-bottom: -76px;
 }
 
-.city-name{
-    color: white;
-    font-weight: bold !important;
-    font-size: 20px !important;
-    justify-content: center;
-    display: flex;
+.city-name {
+  color: white;
+  font-weight: bold !important;
+  font-size: 20px !important;
+  justify-content: center;
+  display: flex;
 }
 
 /*Блок с лучшим временем*/
-.best-time-data{
-    color: white;
-    font-weight: bold !important;
-    font-size: 35px !important;
-    padding-top: 10px;
+.best-time-data {
+  color: white;
+  font-weight: bold !important;
+  font-size: 35px !important;
+  padding-top: 10px;
 }
-.best-time-data-block{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
+.best-time-data-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.best-time-text{
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 12px !important;
-    font-weight: lighter !important;
-    padding-bottom: 25px;
+.best-time-text {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 12px !important;
+  font-weight: lighter !important;
+  padding-bottom: 25px;
 }

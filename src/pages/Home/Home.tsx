@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
 import "@fontsource/inter/";
-import "./Home.css";
-import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
-import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
+import React, { useEffect, useState } from "react";
 import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import { useWeathersApi } from "../../services/useWeathersApi";
-import { WeatherData } from "../../services/models/weather-data";
 import WeatherMainComponent from "../../components/WeatherMainComponent/WeatherMainComponent";
+import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
 import WeatherScheduleDay from "../../components/WeatherScheduleDay/WeatherScheduleDay";
+import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
+import { WeatherData } from "../../services/models/weather-data";
+import { useWeathersApi } from "../../services/useWeathersApi";
+import "./Home.css";
+import WeatherDataBlock from "../../components/WeatherDataBlock/WeatherDataBlock";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
@@ -31,7 +32,13 @@ const Home = () => {
 
   return (
     <div className="home-page">
-        <WeatherMainComponent></WeatherMainComponent>
+        <WeatherMainComponent 
+    windData={todayWeatherData?.current.wind_kph.toString() || ""} 
+    temperatureData={todayWeatherData?.current.temp_c.toString() || ""} 
+    humidityData={todayWeatherData?.current.humidity.toString() || ""}
+    cityName={todayWeatherData?.location.name.toString() || ""}  
+/>
+
         <WeatherScheduleDay></WeatherScheduleDay>
       <h2 className="welcome-name">
         Добро пожаловать!

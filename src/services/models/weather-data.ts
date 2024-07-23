@@ -7,6 +7,7 @@ export type WeatherData = {
       uv: string;
       wind_kph: number;
       feelslike_c: number;
+      humidity: number;
     };
     forecast: {
       forecastday: {

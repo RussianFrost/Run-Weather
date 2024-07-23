@@ -4,24 +4,23 @@
     height: auto;
     background-color: #3e8eff;
     padding-top: 20px;
-    padding-bottom: 50px;
-    margin-bottom: 40px;
+    padding-bottom: 70px;
     position: relative;
 }
 .main-container .wave-svg{
     margin-bottom: -80px;
 }
-
-/*Настройка кнопки*/
-.button-city{
-    display: flex;
-    justify-content: center;
+.path{
+    width: auto;
+    height: 200px;
 }
-.text-button{
+
+.city-name{
     color: white;
     font-weight: bold !important;
+    font-size: 20px !important;
+    justify-content: center;
     display: flex;
-    flex-direction: row-reverse;
 }
 
 /*Блок с лучшим временем*/
@@ -29,6 +28,7 @@
     color: white;
     font-weight: bold !important;
     font-size: 35px !important;
+    padding-top: 10px;
 }
 .best-time-data-block{
     display: flex;
@@ -42,5 +42,5 @@
     color: white;
     font-size: 12px !important;
     font-weight: lighter !important;
-    padding-bottom: 5px;
+    padding-bottom: 25px;
 }

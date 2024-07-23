@@ -3,28 +3,28 @@ import "./WeatherDataBlock.css";
 import "@fontsource/inter/100.css";
 
 type WeatherDataBlockType = {
-    // title: string;
-    // data: string;
-    // description?: string;
+    windData: string;
+    temperatureData: string;
+    humidityData: string;
 };
 
 
-const WeatherDataBlock: React.FC<WeatherDataBlockType> = (weatherMicro) => {
+const WeatherDataBlock: React.FC<WeatherDataBlockType> = (weatherData) => {
     return (
             <div className="weather-data">
                 <div className="weather-data-block">
                     <p className="weather-data-name">Ветер</p>
-                    <b className="weather-data-number">3</b>
+                    <b className="weather-data-number">{weatherData.windData}</b>
                     <p className="weather-data-sub">м/с</p>
                 </div>
                 <div className="weather-data-block">
                     <p className="weather-data-name">Температура</p>
-                    <b className="weather-data-number">23</b>
+                    <b className="weather-data-number">{weatherData.temperatureData}</b>
                     <p className="weather-data-sub">°C</p>
                 </div>
                 <div className="weather-data-block">
                     <p className="weather-data-name">Влажность</p>
-                    <b className="weather-data-number">70</b>
+                    <b className="weather-data-number">{weatherData.humidityData}</b>
                     <p className="weather-data-sub">%</p>
                 </div>
             </div>

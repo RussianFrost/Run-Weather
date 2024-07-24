@@ -6,39 +6,3 @@
   align-items: center;
   height: 100vh;
 }
-
-/*Блок с лучшим временем*/
-.welcome-container {
-  width: auto;
-  height: 250px;
-  border-radius: 30px;
-}
-.better-time-text {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-.weather-typography-today {
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-.welcome-name {
-  padding-top: 5px;
-  padding-bottom: 10px;
-}
-
-/*Верстка микро блоков*/
-.weather-all-micro-blocks {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 400px; /*90% для мобильной версии  30 для пк при 100% */
-  height: auto;
-}
-.weather-micro-name {
-  padding-left: 3px;
-}
-
-.weather-schedule-title{
-  color: black;
-  padding-bottom: 10px;
-}

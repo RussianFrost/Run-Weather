@@ -3,7 +3,7 @@ import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
-const WeatherScheduleDay = () => {
+const WeatherChartDay = () => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -43,7 +43,12 @@ const WeatherScheduleDay = () => {
     };
   }, []);
 
-  return <canvas ref={chartRef} className={"weather-scheduler"}></canvas>;
+  return (
+    <div className="weather-schedule">
+      <b className="weather-schedule-title">График погоды:</b>
+      <canvas ref={chartRef} className={"weather-scheduler-data"}></canvas>
+    </div>
+  );
 };
 
-export default WeatherScheduleDay;
+export default WeatherChartDay;

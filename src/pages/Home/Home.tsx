@@ -1,9 +1,9 @@
 import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
-import WeatherMainComponent from "../../components/WeatherMainComponent/WeatherMainComponent";
-import WeatherScheduleDay from "../../components/WeatherScheduleDay/WeatherScheduleDay";
+import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherMainComponent";
+import WeatherChartDay from "../../components/WeatherScheduleDay/WeatherChartDay";
 import { WeatherData } from "../../services/models/weather-data";
-import { useWeathersApi } from "../../services/useWeathersApi";
+import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
 
 const Home = () => {
@@ -28,14 +28,13 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <WeatherMainComponent
+      <WeatherHeaderComponent
         windData={todayWeatherData?.current.wind_kph.toString() || ""}
         temperatureData={todayWeatherData?.current.temp_c.toString() || ""}
         humidityData={todayWeatherData?.current.humidity.toString() || ""}
         cityName={todayWeatherData?.location.name.toString() || ""}
       />
-      <b className="weather-schedule-title">График погоды:</b>
-        <WeatherScheduleDay></WeatherScheduleDay>
+        <WeatherChartDay></WeatherChartDay>
     </div>
   );
 };

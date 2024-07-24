@@ -10,7 +10,7 @@ type WeatherDataBlockType = {
 
 const WeatherDataBlock: React.FC<WeatherDataBlockType> = (weatherData) => {
   return (
-    <div className="weather-data">
+    <div className="weather-data-container">
       <div className="weather-data-block">
         <p className="weather-data-name">Ветер</p>
         <b className="weather-data-number">{weatherData.windData}</b>

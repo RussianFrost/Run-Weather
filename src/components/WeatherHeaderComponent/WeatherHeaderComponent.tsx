@@ -4,16 +4,16 @@ import "@fontsource/inter/100.css";
 import WeatherDataBlock from "../WeatherDataBlock/WeatherDataBlock";
 
 type WeatherHeaderComponentData = {
-  windData: string;
-  temperatureData: string;
-  humidityData: string;
+  windSpeed: string;
+  temperature: string;
+  humidity: string;
   cityName: string;
 };
 
 const WeatherHeaderComponent: React.FC<WeatherHeaderComponentData> = ({
-  windData,
-  temperatureData,
-  humidityData,
+  windSpeed,
+  temperature,
+  humidity,
   cityName,
 }) => {
   return (
@@ -28,9 +28,9 @@ const WeatherHeaderComponent: React.FC<WeatherHeaderComponentData> = ({
         <p className="best-time-text">Лучшее время сегодня</p>
       </div>
       <WeatherDataBlock
-        windData={windData}
-        temperatureData={temperatureData}
-        humidityData={humidityData}
+        windSpeed={windSpeed}
+        temperature={temperature}
+        humidity={humidity}
       ></WeatherDataBlock>
       <svg
         xmlns="http://www.w3.org/2000/svg"

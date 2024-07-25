@@ -1,6 +1,6 @@
 import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
-import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherMainComponent";
+import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
 import WeatherChartDay from "../../components/WeatherScheduleDay/WeatherChartDay";
 import { WeatherData } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
@@ -29,9 +29,9 @@ const Home = () => {
   return (
     <div className="home-page">
       <WeatherHeaderComponent
-        windData={todayWeatherData?.current.wind_kph.toString() || ""}
-        temperatureData={todayWeatherData?.current.temp_c.toString() || ""}
-        humidityData={todayWeatherData?.current.humidity.toString() || ""}
+        windSpeed={todayWeatherData?.current.wind_kph.toString() || ""}
+        temperature={todayWeatherData?.current.temp_c.toString() || ""}
+        humidity={todayWeatherData?.current.humidity.toString() || ""}
         cityName={todayWeatherData?.location.name.toString() || ""}
       />
         <WeatherChartDay></WeatherChartDay>

@@ -7,8 +7,7 @@
   border: 1px rgba(255, 255, 255, 0.3) solid;
   width: 250px;
   height: 90px;
-  margin: 0 auto;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
 }
 
 .weather-data-block {

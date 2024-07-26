@@ -21,9 +21,9 @@ const WeatherHeaderComponent: React.FC<WeatherHeaderComponentData> = ({
       <div className="best-time-today">
         <h6 className="city-name">{cityName}</h6>
         <div className="best-time-data-block">
-          <h6 className="best-time-data">15:00</h6>
-          <h6 className="best-time-data">-</h6>
-          <h6 className="best-time-data">17:00</h6>
+          <h6>15:00</h6>
+          <h6>-</h6>
+          <h6>17:00</h6>
         </div>
         <p className="best-time-text">Лучшее время сегодня</p>
       </div>

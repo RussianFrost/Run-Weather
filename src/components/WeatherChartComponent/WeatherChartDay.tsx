@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import {setupWeatherChart} from "../../utils/weatherChart";
 
-const WeatherChartDay = () => {
+type WeatherChartData = {
+  chartTitle: string,
+}
+
+const WeatherChartDay: React.FC<WeatherChartData> = ({chartTitle}) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   const initChart = () => {
@@ -24,7 +28,7 @@ const WeatherChartDay = () => {
 
   return (
       <div className="weather-schedule">
-        <b className="weather-schedule-title">График погоды:</b>
+        <b className="weather-schedule-title">{chartTitle}</b>
         <canvas ref={chartRef} className={"weather-scheduler-data"}></canvas>
       </div>
   );

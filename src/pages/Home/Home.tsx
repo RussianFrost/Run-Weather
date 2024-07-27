@@ -15,7 +15,7 @@ const Home = () => {
     getTodayWeather();
   }, []);
 
-  function getTodayWeather() {
+  function getTodayWeather(): void {
     useWeathersApi
       .getDayWeather()
       .then((weather) => {
@@ -25,34 +25,27 @@ const Home = () => {
         console.error(error);
       });
   }
-  function getWindData() {
-    return {
-      windSpeed: todayWeatherData?.current?.wind_kph?.toString() || "",
-    };
+  function getWindSpeed(): string {
+    return todayWeatherData?.current?.wind_kph?.toString() || "";
   }
-  function getTemperatureData() {
-    return{
-      temperature: todayWeatherData?.current?.temp_c?.toString() || "",
-    }
+  function getTemperature(): string {
+    return todayWeatherData?.current?.temp_c?.toString() || "";
   }
-  function getHumidityData() {
-    return{
-      humidity: todayWeatherData?.current?.humidity?.toString() || "",
-    }
+  function getHumidity(): string {
+    return todayWeatherData?.current?.humidity?.toString() || "";
+
   }
-  function getCityNameData(){
-    return{
-      cityName: todayWeatherData?.location?.name?.toString() || "",
-    }
+  function getCityName(): string{
+    return todayWeatherData?.location?.name?.toString() || "";
   }
 
   return (
     <div className="home-page">
       <WeatherHeaderComponent
-          windSpeed={getWindData().windSpeed}
-          temperature={getTemperatureData().temperature}
-          humidity={getHumidityData().humidity}
-          cityName={getCityNameData().cityName}
+          windSpeed={getWindSpeed()}
+          temperature={getTemperature()}
+          humidity={getHumidity()}
+          cityName={getCityName()}
       />
         <WeatherChartComponent chartTitle={"График погоды:"}></WeatherChartComponent>
     </div>

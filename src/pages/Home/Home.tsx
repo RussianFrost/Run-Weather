@@ -1,7 +1,7 @@
 import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
 import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
-import WeatherChartDay from "../../components/WeatherChartComponent/WeatherChartDay";
+import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
 import { WeatherData } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
@@ -28,21 +28,33 @@ const Home = () => {
   function getWindData() {
     return {
       windSpeed: todayWeatherData?.current?.wind_kph?.toString() || "",
-      temperature: todayWeatherData?.current?.temp_c?.toString() || "",
-      humidity: todayWeatherData?.current?.humidity?.toString() || "",
-      cityName: todayWeatherData?.location?.name?.toString() || "",
     };
+  }
+  function getTemperatureData() {
+    return{
+      temperature: todayWeatherData?.current?.temp_c?.toString() || "",
+    }
+  }
+  function getHumidityData() {
+    return{
+      humidity: todayWeatherData?.current?.humidity?.toString() || "",
+    }
+  }
+  function getCityNameData(){
+    return{
+      cityName: todayWeatherData?.location?.name?.toString() || "",
+    }
   }
 
   return (
     <div className="home-page">
       <WeatherHeaderComponent
           windSpeed={getWindData().windSpeed}
-          temperature={getWindData().temperature}
-          humidity={getWindData().humidity}
-          cityName={getWindData().cityName}
+          temperature={getTemperatureData().temperature}
+          humidity={getHumidityData().humidity}
+          cityName={getCityNameData().cityName}
       />
-        <WeatherChartDay chartTitle={"График погоды:"}></WeatherChartDay>
+        <WeatherChartComponent chartTitle={"График погоды:"}></WeatherChartComponent>
     </div>
   );
 };

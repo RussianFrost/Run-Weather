@@ -1,6 +1,6 @@
 import React from "react";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import ".//WeatherWeekBlock.css";
+import "./WeatherWeekComponent.css";
 
 type WeatherDayProps = {
   city: string;

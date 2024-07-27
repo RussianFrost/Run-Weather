@@ -5,7 +5,7 @@ type WeatherChartData = {
   chartTitle: string,
 }
 
-const WeatherChartDay: React.FC<WeatherChartData> = ({chartTitle}) => {
+const WeatherChartComponent: React.FC<WeatherChartData> = ({chartTitle}) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   const initChart = () => {
@@ -22,8 +22,7 @@ const WeatherChartDay: React.FC<WeatherChartData> = ({chartTitle}) => {
   };
 
   useEffect(() => {
-    const cleanup = initChart(); // Вызов функции и сохранение функции очистки
-    return cleanup;
+    return initChart();
   }, []);
 
   return (
@@ -34,4 +33,4 @@ const WeatherChartDay: React.FC<WeatherChartData> = ({chartTitle}) => {
   );
 };
 
-export default WeatherChartDay;
+export default WeatherChartComponent;

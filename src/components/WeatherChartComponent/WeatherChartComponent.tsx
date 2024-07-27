@@ -22,7 +22,7 @@ const WeatherChartComponent: React.FC<WeatherChartData> = ({chartTitle}) => {
   };
 
   useEffect(() => {
-    return initChart();
+    initChart();
   }, []);
 
   return (

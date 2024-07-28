@@ -1,15 +1,10 @@
+import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
-import "./Home.css";
-import { Typography } from "@mui/material";
-import WeatherWeekBlock from "../../components/WeatherWeekBlock/WeatherWeekBlock";
-import WeatherMicroContainer from "../../components/WeatherMicroContainer/WeatherMicroContainer";
-import WeatherWelcomeContainer from "../../components/WearthWelcomeContainer/WeatherWelcomeContainer";
-import { useWeathersApi } from "../../services/useWeathersApi";
+import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
+import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
 import { WeatherData } from "../../services/models/weather-data";
+import { useWeathersApi } from "../../services/useWeatherApi";
+import "./Home.css";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
@@ -20,7 +15,7 @@ const Home = () => {
     getTodayWeather();
   }, []);
 
-  function getTodayWeather() {
+  function getTodayWeather(): void {
     useWeathersApi
       .getDayWeather()
       .then((weather) => {
@@ -30,55 +25,29 @@ const Home = () => {
         console.error(error);
       });
   }
+  function getWindSpeed(): string {
+    return todayWeatherData?.current?.wind_kph?.toString() || "";
+  }
+  function getTemperature(): string {
+    return todayWeatherData?.current?.temp_c?.toString() || "";
+  }
+  function getHumidity(): string {
+    return todayWeatherData?.current?.humidity?.toString() || "";
+
+  }
+  function getCityName(): string{
+    return todayWeatherData?.location?.name?.toString() || "";
+  }
 
   return (
     <div className="home-page">
-      <Typography variant="h5" className="welcome-name">
-        Добро пожаловать!
-      </Typography>
-      <WeatherWelcomeContainer
-        time={"15:00 - 17:00"}
-        data={"24 С, 2 m/s"}
-        title={"Лучшее время бега:"}
-      ></WeatherWelcomeContainer>
-      <Typography variant="button" className="weather-typography-today">
-        Погода сегодня:
-      </Typography>
-      <div className="wearth-today-block">
-        <WeatherWeekBlock
-          city={todayWeatherData?.location.name || ""}
-          weatherCurrentDegree={todayWeatherData?.current.temp_c || ""}
-          weatherCondition={"Sunny"}
-          weatherHigherLowerDegree={"H:88° L:57°"}
-          sixHoursData={[
-            { time: "1PM", degree: "84" },
-            { time: "2PM", degree: "81" },
-            { time: "3PM", degree: "80" },
-            { time: "4PM", degree: "54" },
-            { time: "5PM", degree: "34" },
-            { time: "6PM", degree: "12" },
-          ]}
-        ></WeatherWeekBlock>
-      </div>
-      <div className="weather-all-micro-blocks">
-        <WeatherMicroContainer
-          title={"UV INDEX"}
-          data={todayWeatherData?.current.uv || ""}
-          description={"Moderate"}
-        ></WeatherMicroContainer>
-        <WeatherMicroContainer
-          title={"SUNRISE"}
-          data={todayWeatherData?.forecast.forecastday[0].astro.sunrise || ""}
-        ></WeatherMicroContainer>
-        <WeatherMicroContainer
-          title={"WIND"}
-          data={todayWeatherData?.current.wind_kph + " km/h"}
-        ></WeatherMicroContainer>
-        <WeatherMicroContainer
-          title={"FEELS LIKE"}
-          data={todayWeatherData?.current.feelslike_c + "\u00B0"}
-        ></WeatherMicroContainer>
-      </div>
+      <WeatherHeaderComponent
+          windSpeed={getWindSpeed()}
+          temperature={getTemperature()}
+          humidity={getHumidity()}
+          cityName={getCityName()}
+      />
+        <WeatherChartComponent chartTitle={"График погоды:"}></WeatherChartComponent>
     </div>
   );
 };

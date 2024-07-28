@@ -1,0 +1,42 @@
+.weather-data-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: linear-gradient(to right, #2c80ff, #00398e);
+  border-radius: 22px;
+  border: 1px rgba(255, 255, 255, 0.3) solid;
+  width: 250px;
+  height: 90px;
+  margin: 0 auto 25px;
+}
+
+.weather-data-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+.weather-data-name {
+  font-weight: lighter;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-data-number {
+  display: flex;
+  font-weight: bold;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  height: 33px;
+}
+.weather-data-sub {
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

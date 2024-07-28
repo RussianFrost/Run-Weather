@@ -1,0 +1,42 @@
+/*Настройки основного блока*/
+.main-container {
+  width: 100vw;
+  height: auto;
+  background-color: #3e8eff;
+  padding-top: 20px;
+  padding-bottom: 90px;
+  position: relative;
+}
+.main-container .wave-svg {
+  margin-bottom: -97px;
+}
+
+.city-name {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+}
+
+/*Блок с лучшим временем*/
+
+.best-time-data-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.best-time-data-block h6 {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  padding-top: 10px;
+}
+.best-time-text {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: lighter;
+  padding-bottom: 25px;
+}

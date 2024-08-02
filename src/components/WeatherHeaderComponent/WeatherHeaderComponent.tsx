@@ -8,6 +8,8 @@ type WeatherHeaderComponentData = {
   temperature: string;
   humidity: string;
   cityName: string;
+  startHour: string;
+  endHour: string;
 };
 
 const WeatherHeaderComponent: React.FC<WeatherHeaderComponentData> = ({
@@ -15,15 +17,17 @@ const WeatherHeaderComponent: React.FC<WeatherHeaderComponentData> = ({
   temperature,
   humidity,
   cityName,
+  startHour,
+  endHour,
 }) => {
   return (
     <div className="main-container">
       <div className="best-time-today">
         <h6 className="city-name">{cityName}</h6>
         <div className="best-time-data-block">
-          <h6>15:00</h6>
+          <h6>{startHour}</h6>
           <h6>-</h6>
-          <h6>17:00</h6>
+          <h6>{endHour}</h6>
         </div>
         <p className="best-time-text">Лучшее время сегодня</p>
       </div>

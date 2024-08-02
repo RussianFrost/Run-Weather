@@ -10,10 +10,18 @@ export type WeatherData = {
     humidity: number;
   };
   forecast: {
-    forecastday: {
+    forecastday: Array<{ 
       astro: {
         sunrise: string;
       };
-    }[];
+      hour: Array<{ 
+        time: string;
+        temp_c: string;
+        wind_kph: number;
+        humidity: number;
+      }>;
+    }>;
   };
 };
+
+

@@ -24,4 +24,12 @@ export type WeatherData = {
   };
 };
 
+export type BestHour = {
+  startTime: string;   // Время начала
+  endTime: string;     // Время окончания
+  temperature: string; // Температура
+  windSpeed: string;   // Скорость ветра
+  humidity: string;    // Влажность
+};
+
 

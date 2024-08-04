@@ -2,34 +2,33 @@ import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
 import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
 import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
-import { WeatherData } from "../../services/models/weather-data";
+import {BestHour, WeatherData} from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(null);
-  const [bestHour, setBestHour] = useState<{ startTime: string, endTime: string, temperature: string, windSpeed: string, humidity: string } | null>(null);
+  const [bestHour, setBestHour] = useState<BestHour  | null>(null);
 
   useEffect(() => {
     getTodayWeather();
-  }, []);
-
-  useEffect(() => {
-    if (todayWeatherData) {
-      const bestTime = bestWeather(todayWeatherData);
-      setBestHour(bestTime);
-    }
-  }, [todayWeatherData]);
+  }, );
 
   function getTodayWeather(): void {
     useWeathersApi
-      .getDayWeather()
-      .then((weather) => {
-        setTodayWeatherData(weather?.data || null);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        .getDayWeather()
+        .then((weather) => {
+          const data = weather?.data || null;
+          setTodayWeatherData(data);
+
+          if (data) { // Вызываем bestWeather сразу после получения данных
+            const bestTime = bestWeather(data);
+            setBestHour(bestTime);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
   }
 
   function bestWeather(data: WeatherData) {
@@ -37,8 +36,8 @@ const Home = () => {
     let bestTime = hours[0];
 
     for (const hour of hours) {
-      if (Number(hour.temp_c) > Number(bestTime.temp_c) && 
-          Number(hour.wind_kph) < Number(bestTime.wind_kph) && 
+      if (Number(hour.temp_c) > Number(bestTime.temp_c) &&
+          Number(hour.wind_kph) < Number(bestTime.wind_kph) &&
           Number(hour.humidity) < Number(bestTime.humidity)) {
         bestTime = hour;
       }
@@ -49,7 +48,7 @@ const Home = () => {
     const endDate = new Date(startDate.getTime() + 60 * 60 * 1000);
 
     const endHour = endDate.toTimeString().split(" ")[0].slice(0, 5);
-    
+
     return {
       startTime: startHour,
       endTime: endHour,

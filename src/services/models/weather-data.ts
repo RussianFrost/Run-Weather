@@ -10,11 +10,11 @@ export type WeatherData = {
     humidity: number;
   };
   forecast: {
-    forecastday: Array<{ 
+    forecastday: Array<{
       astro: {
         sunrise: string;
       };
-      hour: Array<{ 
+      hour: Array<{
         time: string;
         temp_c: string;
         wind_kph: number;
@@ -25,11 +25,9 @@ export type WeatherData = {
 };
 
 export type BestHour = {
-  startTime: string;   // Время начала
-  endTime: string;     // Время окончания
+  startTime: string; // Время начала
+  endTime: string; // Время окончания
   temperature: string; // Температура
-  windSpeed: string;   // Скорость ветра
-  humidity: string;    // Влажность
+  windSpeed: string; // Скорость ветра
+  humidity: string; // Влажность
 };
-
-

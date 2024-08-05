@@ -1,20 +1,30 @@
+import { Chart, registerables } from "chart.js";
 import React, { useEffect, useRef } from "react";
 import { setupWeatherChart } from "../../utils/weatherChart";
-import { Chart } from "chart.js";
+
+Chart.register(...registerables);
 
 type WeatherChartData = {
-  chartTitle: string,
-  labels: string[],
-  data: number[]
-}
+  chartTitle: string;
+  labels: string[];
+  data: number[];
+};
 
-const WeatherChartComponent: React.FC<WeatherChartData> = ({ chartTitle, labels, data }) => {
+const WeatherChartComponent: React.FC<WeatherChartData> = ({
+  chartTitle,
+  labels,
+  data,
+}) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstance = useRef<Chart | null>(null); // Ссылка на экземпляр графика
+  const chartInstance = useRef<Chart | null>(null);
 
   // Ограничение данных до 8 часов
-  const limitedData = data.slice(-8); // Получаем последние 8 данных
-  const limitedLabels = labels.slice(-8); // Получаем последние 8 меток
+  const getLimitedData = () => {
+    return data.slice(-8); // Получаем последние 8 данных
+  };
+  const getLimitedLabels = () => {
+    return labels.slice(-8); // Получаем последние 8 меток
+  };
 
   const initChart = () => {
     if (!chartRef.current) return;
@@ -26,27 +36,45 @@ const WeatherChartComponent: React.FC<WeatherChartData> = ({ chartTitle, labels,
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
-    
-    chartInstance.current = setupWeatherChart(ctx, limitedLabels, limitedData); // Передаем ограничения меток и данных графика
+
+    // Создаем новый график
+    chartInstance.current = setupWeatherChart(
+      ctx,
+      getLimitedLabels(),
+      getLimitedData(),
+    );
+  };
+
+  // Обновление графика
+  const updateChart = () => {
+    if (chartInstance.current) {
+      chartInstance.current.data.labels = getLimitedLabels();
+      chartInstance.current.data.datasets[0].data = getLimitedData();
+      chartInstance.current.update(); // Обновляем график без пересоздания
+    }
   };
 
   useEffect(() => {
     initChart();
-    
+
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy(); // Уничтожаем график при размонтировании компонента
       }
     };
-  }, [limitedLabels, limitedData]); // Запускаем повторную инициализацию при изменении ограниченных данных
+  }, []); // Запуск только при первом рендере
+
+  // Используем отдельный useEffect для обновления графика при изменении данных
+  useEffect(() => {
+    updateChart(); // Обновляем график только при изменении данных
+  }, [labels, data]); // Срабатывает только при изменении labels или data
 
   return (
-      <div className="weather-schedule">
-        <b className="weather-schedule-title">{chartTitle}</b>
-        <canvas ref={chartRef} className={"weather-scheduler-data"}></canvas>
-      </div>
+    <div className="weather-schedule">
+      <b className="weather-schedule-title">{chartTitle}</b>
+      <canvas ref={chartRef} className={"weather-scheduler-data"}></canvas>
+    </div>
   );
 };
 
 export default WeatherChartComponent;
-

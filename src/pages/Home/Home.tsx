@@ -2,40 +2,45 @@ import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
 import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
 import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
-import {BestHour, WeatherData} from "../../services/models/weather-data";
+import { BestHour, WeatherData } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
 
 const Home = () => {
-  const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(null);
-  const [bestHour, setBestHour] = useState<BestHour  | null>(null);
-  const [chartData, setChartData] = useState<{ labels: string[], data: number[] }>({ labels: [], data: [] });
+  const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
+    null,
+  );
+  const [bestHour, setBestHour] = useState<BestHour | null>(null);
+  const [chartData, setChartData] = useState<{
+    labels: string[];
+    data: number[];
+  }>({ labels: [], data: [] });
 
   useEffect(() => {
     getTodayWeather();
-  }, );
+  });
 
   function getTodayWeather(): void {
     useWeathersApi
-        .getDayWeather()
-        .then((weather) => {
-          const data = weather?.data || null;
-          setTodayWeatherData(data);
+      .getDayWeather()
+      .then((weather) => {
+        const data = weather?.data || null;
+        setTodayWeatherData(data);
 
-          if (data) {
-            const bestTime = bestWeather(data);
-            setBestHour(bestTime);
+        if (data) {
+          const bestTime = bestWeather(data);
+          setBestHour(bestTime);
 
           const hours = data.forecast.forecastday[0].hour;
-          const labels = hours.map(hour => hour.time.split(" ")[1]);
-          const temperatures = hours.map(hour => Number(hour.temp_c));
+          const labels = hours.map((hour) => hour.time.split(" ")[1]);
+          const temperatures = hours.map((hour) => Number(hour.temp_c));
 
           setChartData({ labels, data: temperatures });
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function bestWeather(data: WeatherData) {
@@ -43,9 +48,11 @@ const Home = () => {
     let bestTime = hours[0];
 
     for (const hour of hours) {
-      if (Number(hour.temp_c) > Number(bestTime.temp_c) &&
-          Number(hour.wind_kph) < Number(bestTime.wind_kph) &&
-          Number(hour.humidity) < Number(bestTime.humidity)) {
+      if (
+        Number(hour.temp_c) > Number(bestTime.temp_c) &&
+        Number(hour.wind_kph) < Number(bestTime.wind_kph) &&
+        Number(hour.humidity) < Number(bestTime.humidity)
+      ) {
         bestTime = hour;
       }
     }
@@ -91,12 +98,13 @@ const Home = () => {
         humidity={bestHour?.humidity || getHumidity()}
         cityName={getCityName()}
       />
-      <WeatherChartComponent chartTitle={"График погоды:"} labels={chartData.labels} data={chartData.data}></WeatherChartComponent>
+      <WeatherChartComponent
+        chartTitle={"График погоды:"}
+        labels={chartData.labels}
+        data={chartData.data}
+      ></WeatherChartComponent>
     </div>
   );
 };
 
 export default Home;
-
-
-

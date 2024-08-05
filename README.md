@@ -1,3 +1,4 @@
+![](https://github.com/GoodGrim/Run-Weather/src/static/images/Group%2014.svg)
 # Run&Weather App
 This project was created with the goal of determine hours with the best weather conditions for your outdoor workouts
 
@@ -5,7 +6,6 @@ This project was created with the goal of determine hours with the best weather 
 ## Our future features plan:
 * Customizable user preference for weather settings
 * Let users create their own fully customisable weekly schedules for different types of outdoor workouts
-*
 
 ## Available Scripts
 

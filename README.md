@@ -1,4 +1,7 @@
-![](https://github.com/GoodGrim/Run-Weather/src/static/images/Group%2014.svg)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8f096295-a0a3-41c3-ad66-9435cc5a0325" alt="Run&Weather icon"/>
+</p>
+
 # Run&Weather App
 This project was created with the goal of determine hours with the best weather conditions for your outdoor workouts
 

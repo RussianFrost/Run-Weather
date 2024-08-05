@@ -9,6 +9,7 @@ import "./Home.css";
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(null);
   const [bestHour, setBestHour] = useState<BestHour  | null>(null);
+  const [chartData, setChartData] = useState<{ labels: string[], data: number[] }>({ labels: [], data: [] });
 
   useEffect(() => {
     getTodayWeather();
@@ -21,9 +22,15 @@ const Home = () => {
           const data = weather?.data || null;
           setTodayWeatherData(data);
 
-          if (data) { // Вызываем bestWeather сразу после получения данных
+          if (data) {
             const bestTime = bestWeather(data);
             setBestHour(bestTime);
+
+          const hours = data.forecast.forecastday[0].hour;
+          const labels = hours.map(hour => hour.time.split(" ")[1]);
+          const temperatures = hours.map(hour => Number(hour.temp_c));
+
+          setChartData({ labels, data: temperatures });
           }
         })
         .catch((error) => {
@@ -84,7 +91,7 @@ const Home = () => {
         humidity={bestHour?.humidity || getHumidity()}
         cityName={getCityName()}
       />
-      <WeatherChartComponent chartTitle={"График погоды:"}></WeatherChartComponent>
+      <WeatherChartComponent chartTitle={"График погоды:"} labels={chartData.labels} data={chartData.data}></WeatherChartComponent>
     </div>
   );
 };

@@ -3,14 +3,17 @@
 </p>
 
 # Run&Weather App
-This project was created with the goal of determine hours with the best weather conditions for your outdoor workouts
+This project can help you to determine hours with the best weather conditions for your outdoor workouts!
 
 
-## Our future features plan:
-* Customizable user preference for weather settings
+## Our future features plan: 🎉
+* Customizable user preference for weather settings 
 * Let users create their own fully customisable weekly schedules for different types of outdoor workouts
 
-## Available Scripts
+## Check out latest version [here](https://run-weather-deploy-repo.vercel.app/)
+
+
+### How to start an app locally:
 
 In the project directory, you can run:
 ### `npm install`
@@ -23,12 +26,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!

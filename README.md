@@ -17,7 +17,7 @@ This project can help you to determine hours with the best weather conditions fo
 
 In the project directory, you can run:
 ### `npm install`
-Для установки всех пакетов для работы проекта.
+To install all packages for the project
 
 ### `npm start`
 

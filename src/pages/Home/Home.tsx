@@ -2,7 +2,7 @@ import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
 import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
 import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
-import { BestHour, WeatherData } from "../../services/models/weather-data";
+import { BestHour, WeatherData, chartDataType } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
 
@@ -11,14 +11,11 @@ const Home = () => {
     null,
   );
   const [bestHour, setBestHour] = useState<BestHour | null>(null);
-  const [chartData, setChartData] = useState<{
-    labels: string[];
-    data: number[];
-  }>({ labels: [], data: [] });
+  const [chartData, setChartData] = useState<chartDataType>({ labels: [], data: [] });
 
   useEffect(() => {
     getTodayWeather();
-  });
+  },[]);
 
   function getTodayWeather(): void {
     useWeathersApi
@@ -50,7 +47,7 @@ const Home = () => {
     for (const hour of hours) {
       if (
         Number(hour.temp_c) > Number(bestTime.temp_c) &&
-        Number(hour.wind_kph) < Number(bestTime.wind_kph) &&
+        Number(hour.wind_mph) < Number(bestTime.wind_mph) &&
         Number(hour.humidity) < Number(bestTime.humidity)
       ) {
         bestTime = hour;
@@ -67,13 +64,13 @@ const Home = () => {
       startTime: startHour,
       endTime: endHour,
       temperature: bestTime.temp_c.toString(),
-      windSpeed: bestTime.wind_kph.toString(),
+      windSpeed: bestTime.wind_mph.toString(),
       humidity: bestTime.humidity.toString(),
     };
   }
 
   function getWindSpeed(): string {
-    return todayWeatherData?.current?.wind_kph?.toString() || "";
+    return todayWeatherData?.current?.wind_mph?.toString() || "";
   }
 
   function getTemperature(): string {

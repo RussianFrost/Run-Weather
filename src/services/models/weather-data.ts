@@ -5,7 +5,7 @@ export type WeatherData = {
   current: {
     temp_c: string;
     uv: string;
-    wind_kph: number;
+    wind_mph: number;
     feelslike_c: number;
     humidity: number;
   };
@@ -17,7 +17,7 @@ export type WeatherData = {
       hour: Array<{
         time: string;
         temp_c: string;
-        wind_kph: number;
+        wind_mph: number;
         humidity: number;
       }>;
     }>;
@@ -31,3 +31,7 @@ export type BestHour = {
   windSpeed: string; // Скорость ветра
   humidity: string; // Влажность
 };
+export type chartDataType = {
+  labels: string[];
+  data: number[];
+}

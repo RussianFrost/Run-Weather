@@ -20,10 +20,10 @@ const WeatherChartComponent: React.FC<WeatherChartData> = ({
 
   // Ограничение данных до 8 часов
   const getLimitedData = () => {
-    return data.slice(-8); // Получаем последние 8 данных
+    return data.slice(-24);
   };
   const getLimitedLabels = () => {
-    return labels.slice(-8); // Получаем последние 8 меток
+    return labels.slice(-24);
   };
 
   const initChart = () => {

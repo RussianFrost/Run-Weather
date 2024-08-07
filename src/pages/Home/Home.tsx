@@ -25,7 +25,7 @@ const Home = () => {
           setTodayWeatherData(data);
 
           if (data) {
-            const bestTime = bestWeather(data);
+            const bestTime = calculateBestWeather(data);
             setBestHour(bestTime);
 
             const hours = data.forecast.forecastday[0].hour;
@@ -40,7 +40,7 @@ const Home = () => {
         });
   }
 
-  function bestWeather(data: WeatherData) {
+  function calculateBestWeather(data: WeatherData) {
     const hours = data.forecast.forecastday[0].hour;
 
     // Параметры погоды и их идеальные значения
@@ -88,7 +88,6 @@ const Home = () => {
     const startDate = new Date(`${bestTime.time.split(" ")[0]}T${startHour}`);
     const endDate = new Date(startDate);
     endDate.setHours(startDate.getHours() + 1);
-
     const endHour = endDate.toTimeString().split(" ")[0].slice(0, 5);
 
     return {

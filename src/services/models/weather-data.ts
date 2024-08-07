@@ -32,8 +32,3 @@ export type BestHour = {
   windSpeed: string;
   humidity: string;
 };
-
-export type chartDataType = {
-  labels: string[];
-  data: number[];
-}

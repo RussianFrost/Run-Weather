@@ -2,9 +2,10 @@ import "@fontsource/inter/";
 import React, { useEffect, useState } from "react";
 import WeatherHeaderComponent from "../../components/WeatherHeaderComponent/WeatherHeaderComponent";
 import WeatherChartComponent from "../../components/WeatherChartComponent/WeatherChartComponent";
-import { BestHour, WeatherData, chartDataType } from "../../services/models/weather-data";
+import { BestHour, WeatherData } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
+import {chartDataType} from "../../services/models/chart.data";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
@@ -45,7 +46,7 @@ const Home = () => {
 
     // Параметры погоды и их идеальные значения
     const idealWeatherData = {
-      temperature: { min: 10, max: 15, weight: 2 }, // Идеальная температура
+      temperature: { min: 10, max: 25, weight: 2 }, // Идеальная температура
       wind: { max: 5, weight: -1 },  // Максимальная скорость ветра
       humidity: { min: 40, max: 60, weight: -1 } // Идеальная влажность
     };
@@ -116,7 +117,7 @@ const Home = () => {
   function getCityName(): string {
     return todayWeatherData?.location?.name?.toString() || "";
   }
-  
+
   function getHour():string{
     return todayWeatherData?.location.localtime?.split(" ")[1].slice(0, 5) || "";
   }

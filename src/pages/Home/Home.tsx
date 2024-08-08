@@ -5,50 +5,52 @@ import WeatherChartComponent from "../../components/WeatherChartComponent/Weathe
 import { BestHour, WeatherData } from "../../services/models/weather-data";
 import { useWeathersApi } from "../../services/useWeatherApi";
 import "./Home.css";
-import {chartDataType} from "../../services/models/chart.data";
+import { chartDataType } from "../../services/models/chart-data";
 
 const Home = () => {
   const [todayWeatherData, setTodayWeatherData] = useState<WeatherData | null>(
-      null,
+    null,
   );
   const [bestHour, setBestHour] = useState<BestHour | null>(null);
-  const [chartData, setChartData] = useState<chartDataType>({ labels: [], data: [] });
+  const [chartData, setChartData] = useState<chartDataType>({
+    labels: [],
+    data: [],
+  });
 
   useEffect(() => {
     getTodayWeather();
-  },[]);
+  }, []);
 
   function getTodayWeather(): void {
     useWeathersApi
-        .getDayWeather()
-        .then((weather) => {
-          const data = weather?.data || null;
-          setTodayWeatherData(data);
+      .getDayWeather()
+      .then((weather) => {
+        const data = weather?.data || null;
+        setTodayWeatherData(data);
 
-          if (data) {
-            const bestTime = calculateBestWeather(data);
-            setBestHour(bestTime);
+        if (data) {
+          const bestTime = calculateBestWeather(data);
+          setBestHour(bestTime);
 
-            const hours = data.forecast.forecastday[0].hour;
-            const labels = hours.map((hour) => hour.time.split(" ")[1]);
-            const temperatures = hours.map((hour) => Number(hour.temp_c));
+          const hours = data.forecast.forecastday[0].hour;
+          const labels = hours.map((hour) => hour.time.split(" ")[1]);
+          const temperatures = hours.map((hour) => Number(hour.temp_c));
 
-            setChartData({ labels, data: temperatures });
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+          setChartData({ labels, data: temperatures });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   function calculateBestWeather(data: WeatherData) {
     const hours = data.forecast.forecastday[0].hour;
 
-    // Параметры погоды и их идеальные значения
     const idealWeatherData = {
       temperature: { min: 10, max: 25, weight: 2 }, // Идеальная температура
-      wind: { max: 5, weight: -1 },  // Максимальная скорость ветра
-      humidity: { min: 40, max: 60, weight: -1 } // Идеальная влажность
+      wind: { max: 5, weight: -1 }, // Максимальная скорость ветра
+      humidity: { min: 40, max: 60, weight: -1 }, // Идеальная влажность
     };
 
     let bestTime = hours[0];
@@ -61,24 +63,32 @@ const Home = () => {
 
       let score = 0;
 
-      // Оценка температуры
-      if (temp >= idealWeatherData.temperature.min && temp <= idealWeatherData.temperature.max) {
-        score += idealWeatherData.temperature.weight * (idealWeatherData.temperature.max - temp);
+      if (
+        temp >= idealWeatherData.temperature.min &&
+        temp <= idealWeatherData.temperature.max
+      ) {
+        score +=
+          idealWeatherData.temperature.weight *
+          (idealWeatherData.temperature.max - temp);
       } else {
-        score += idealWeatherData.temperature.weight * (idealWeatherData.temperature.max - idealWeatherData.temperature.min);
+        score +=
+          idealWeatherData.temperature.weight *
+          (idealWeatherData.temperature.max - idealWeatherData.temperature.min);
       }
 
-      // Оценка скорости ветра
       if (wind <= idealWeatherData.wind.max) {
         score += idealWeatherData.wind.weight * wind;
       }
 
-      // Оценка влажности
-      if (humidity >= idealWeatherData.humidity.min && humidity <= idealWeatherData.humidity.max) {
-        score += idealWeatherData.humidity.weight * (idealWeatherData.humidity.max - humidity);
+      if (
+        humidity >= idealWeatherData.humidity.min &&
+        humidity <= idealWeatherData.humidity.max
+      ) {
+        score +=
+          idealWeatherData.humidity.weight *
+          (idealWeatherData.humidity.max - humidity);
       }
 
-      // Если текущая оценка лучше, обновить лучшее время
       if (score > bestScore) {
         bestTime = hour;
         bestScore = score;
@@ -100,7 +110,6 @@ const Home = () => {
     };
   }
 
-
   function getWindSpeed(): string {
     return todayWeatherData?.current?.wind_mph?.toString() || "";
   }
@@ -117,26 +126,28 @@ const Home = () => {
     return todayWeatherData?.location?.name?.toString() || "";
   }
 
-  function getHour():string{
-    return todayWeatherData?.location.localtime?.split(" ")[1].slice(0, 5) || "";
+  function getHour(): string {
+    return (
+      todayWeatherData?.location.localtime?.split(" ")[1].slice(0, 5) || ""
+    );
   }
 
   return (
-      <div className="home-page">
-        <WeatherHeaderComponent
-            startHour={bestHour?.startTime || getHour()}
-            endHour={bestHour?.endTime || getHour()}
-            windSpeed={bestHour?.windSpeed || getWindSpeed()}
-            temperature={bestHour?.temperature || getTemperature()}
-            humidity={bestHour?.humidity || getHumidity()}
-            cityName={getCityName()}
-        />
-        <WeatherChartComponent
-            chartTitle={"График погоды:"}
-            labels={chartData.labels}
-            data={chartData.data}
-        ></WeatherChartComponent>
-      </div>
+    <div className="home-page">
+      <WeatherHeaderComponent
+        startHour={bestHour?.startTime || getHour()}
+        endHour={bestHour?.endTime || getHour()}
+        windSpeed={bestHour?.windSpeed || getWindSpeed()}
+        temperature={bestHour?.temperature || getTemperature()}
+        humidity={bestHour?.humidity || getHumidity()}
+        cityName={getCityName()}
+      />
+      <WeatherChartComponent
+        chartTitle={"График погоды:"}
+        labels={chartData.labels}
+        data={chartData.data}
+      ></WeatherChartComponent>
+    </div>
   );
 };
 

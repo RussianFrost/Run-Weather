@@ -8,7 +8,11 @@ type WeatherDataBlockType = {
   humidity: string;
 };
 
-const WeatherDataBlock: React.FC<WeatherDataBlockType> = ({windSpeed, temperature, humidity}) => {
+const WeatherDataBlock: React.FC<WeatherDataBlockType> = ({
+  windSpeed,
+  temperature,
+  humidity,
+}) => {
   return (
     <div className="weather-data-container">
       <div className="weather-data-block">

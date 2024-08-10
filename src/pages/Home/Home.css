@@ -1,4 +1,3 @@
-/*Расположение элементов в странице*/
 .home-page {
   display: flex;
   flex-direction: column;
